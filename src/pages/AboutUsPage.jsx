@@ -1,10 +1,11 @@
+import { Typography } from "@mui/material";
 import React from "react";
 import AboutUs from "../components/AboutUs/AboutUs";
 
 const AboutUsPage = () => {
   return (
     <div>
-      About us
+      {/* <Typography sx={{color: "white"}}>AboutUs</Typography> */}
       <AboutUs />
     </div>
   );
