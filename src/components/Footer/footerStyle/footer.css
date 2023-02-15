@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+
+.footer {
+  width: 100%;
+  height: 170px;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+}
+.footer-href a {
+  text-decoration: none;
+  font-family: oswald;
+  color: #807f7f !important;
+  margin: 0 40px;
+}
+.footer-social {
+  margin: 0 30px;
+}
+.footer-social img {
+  height: 40px;
+  width: 40px;
+}
+.footer p {
+  color: #807f7f;
+  position: absolute;
+  bottom: 0;
+}

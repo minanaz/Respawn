@@ -215,6 +215,29 @@ const AuthRegister = () => {
                   textAlign: "center",
                 }}
               />
+              <CssTextField
+                className="form-animate"
+                margin="normal"
+                size="small"
+                required
+                fullWidth
+                name="confirmPassword"
+                label="confirm password"
+                type="password"
+                id="confirmPassword"
+                autoComplete="confirm-password"
+                // helperText={passwordError}
+                // value={password}
+                // onChange={(e) => {
+                //   setPassword(e.target.value);
+                // }}
+                sx={{
+                  // border: "2px solid rgba(126,126,126,0.1)",
+                  borderRadius: " 4px",
+                  fontFamily: "'FF Mark W05', sans-serif",
+                  textAlign: "center",
+                }}
+              />
             </div>
 
             <FormControlLabel
