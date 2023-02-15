@@ -78,7 +78,7 @@ const AboutUs = () => {
   console.log(count);
 
   return (
-    <div>
+    <div className="aboutUsPage">
       <Box
         sx={{
           background: "rgba(0,0,0,0.4)",

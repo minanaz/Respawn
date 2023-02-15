@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
 import "./styleNavbar/navbarStyle.css";
 import Burger from "./Burger";
@@ -14,9 +14,9 @@ const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false);
   const items = [
     { value: "HOME", href: "/" },
-    { value: "STUDIO", href: "/aboutUs"},
-    { value: "CAREERS", href: "/work"},
-    { value: "NEWS", href: "/news"},
+    { value: "STUDIO", href: "/aboutUs" },
+    { value: "CAREERS", href: "/work" },
+    { value: "NEWS", href: "/news" },
   ];
   // const { user, handleLogOut } = useAuth();
   return (

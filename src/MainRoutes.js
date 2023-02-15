@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import AuthPage from "./pages/AuthPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import GamesPage from "./pages/GamesPage";
 import GameDetailsPage from "./pages/GameDetailsPage";
@@ -12,11 +11,14 @@ import WorkDetailsPage from "./pages/WorkDetailsPage";
 import EditNewsPage from "./pages/EditNewsPage";
 import EditWorkPage from "./pages/EditWorkPage";
 import CartPage from "./pages/CartPage";
+import AuthLoginPage from "./pages/AuthLoginPage";
+import AuthRegisterPage from "./pages/AuthRegisterPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
     { link: "/", element: <HomePage />, id: 1 },
-    { link: "/auth", element: <AuthPage />, id: 2 },
+    { link: "/login", element: <AuthLoginPage />, id: 2 },
+    { link: "/register", element: <AuthRegisterPage />, id: 3 },
     { link: "/aboutus", element: <AboutUsPage />, id: 4 },
     { link: "/games", element: <GamesPage />, id: 5 },
     { link: "/games/:id", element: <GameDetailsPage />, id: 6 },

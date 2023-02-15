@@ -134,7 +134,7 @@
   content: "+";
 }
 
-button {
+.aboutUsPage button {
   min-width: 200px;
   margin-top: 20px;
   height: 40px;
@@ -145,14 +145,12 @@ button {
   font-weight: bold;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   transition: 0.3s;
-
 }
 
 button:hover {
   color: black;
   cursor: pointer;
 }
-
 
 @media screen and (max-width: 600px) {
   .perksInfo {
