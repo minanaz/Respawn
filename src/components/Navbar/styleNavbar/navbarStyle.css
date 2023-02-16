@@ -236,7 +236,7 @@
     flex-direction: column;
   }
   .footer-href a {
-    font-size: 14px;
+    font-size: 14px !important;
   }
   
   .footer-href {
