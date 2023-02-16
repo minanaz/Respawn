@@ -4,11 +4,14 @@ import MainRoutes from "./MainRoutes";
 import Footer from "./components/Footer/Footer";
 
 function App() {
+
+  console.log(window.location.pathname);
   return (
     <div className="App">
-      <Navbar />
+
+      {window.location.pathname == "/login" || window.location.pathname == "/register"  ? "" : <Navbar />}
       <MainRoutes />
-      {/* <Footer /> */}
+      {window.location.pathname == "/login" || window.location.pathname == "/register" ? "" :  <Footer />}
     </div>
   );
 }
