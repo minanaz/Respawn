@@ -6,9 +6,9 @@ import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {window.location.pathname == "/login" || "/register" ? "" : <Navbar />}
       <MainRoutes />
-      {/* <Footer /> */}
+      {window.location.pathname == "/login" || "/register" ? "" : <Footer />}
     </div>
   );
 }
