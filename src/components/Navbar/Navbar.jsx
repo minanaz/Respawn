@@ -14,9 +14,9 @@ const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false);
   const items = [
     { value: "HOME", href: "/" },
-    { value: "STUDIO", href: "/aboutUs"},
-    { value: "CAREERS", href: "/work"},
-    { value: "NEWS", href: "/news"},
+    { value: "STUDIO", href: "/aboutUs" },
+    { value: "CAREERS", href: "/work" },
+    { value: "NEWS", href: "/news" },
   ];
   // const { user, handleLogOut } = useAuth();
   return (
