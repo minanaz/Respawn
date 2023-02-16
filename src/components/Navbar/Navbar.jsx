@@ -44,7 +44,9 @@ const Navbar = () => {
           <></>
         )} */}
       </ul>
-      <button className="btn-sing-in">Sign In</button>
+      <Link to="/login">
+        <button className="btn-sing-in">Sign In</button>
+      </Link>
       <div className="search">
         <input className="search-inp" type="text" placeholder="search..." />
         <img src="https://ru.reactjs.org/search.svg" alt="" />
