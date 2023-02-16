@@ -21,7 +21,7 @@
 }
 
 .navigation__item {
-  color: black;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   list-style: none;
   font-size: 17px;
