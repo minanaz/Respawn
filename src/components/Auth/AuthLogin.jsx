@@ -34,6 +34,12 @@ const AuthLogin = () => {
         sx={{ width: "100%", height: "100%" }}
       >
         <CssBaseline />
+        <Link to="/">
+          <div className="logo">
+            <div className="logo-img"></div>
+            <span>Respawn</span>
+          </div>
+        </Link>
         <Box
           sx={{
             display: "flex",

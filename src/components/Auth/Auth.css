@@ -27,6 +27,24 @@ ul {
   margin: 0 auto;
 }
 
+.authPage .logo {
+  margin-top: 1%;
+  position: absolute;
+  left: 0;
+  height: 10%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-left: 1%;
+}
+
+.authPage .logo span {
+  font-size: 1.5rem;
+}
+
+.authPage .logo-img {
+  height: 100%;
+}
 .authPage input:focus {
   background: #fff;
 }

@@ -2,20 +2,15 @@
 
 .footer {
   width: 100%;
-  height: 150px;
+  min-height: 170px;
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5%;
-  justify-content: space-around;
-  /* position: fixed;
+  justify-content: center;
+  padding-top: 20px;
+  /* position: absolute;
   bottom: 0; */
-}
-.footer-href {
-  width: 70%;
-  display: flex;
-  justify-content: space-around;
 }
 .footer-href a {
   text-decoration: none;
@@ -37,12 +32,6 @@
 }
 
 .footer-top {
-  width: 70%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-
-.footer-href a {
-  font-size: 0.75rem;
 }
