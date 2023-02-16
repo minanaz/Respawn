@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
 import "./styleNavbar/navbarStyle.css";
 import Burger from "./Burger";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const pages = [
     { name: "HOME", link: "/", id: 1 },
     { name: "STUDIO", link: "/aboutUs", id: 2 },
@@ -50,7 +51,7 @@ const Navbar = () => {
           <></>
         )} */}
       </ul>
-      <button className="btn-sing-in">Sign In</button>
+      <button onClick={() => navigate("/login")} className="btn-sing-in">Sign In</button>
       <div className="search">
         <input className="search-inp" type="text" placeholder="search..." />
         <img src="https://ru.reactjs.org/search.svg" alt="" />

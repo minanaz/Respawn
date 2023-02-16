@@ -1,9 +1,7 @@
-
 .img__wrapper {
-  min-width: 40vw;
+  max-width: 50%;
   height: 100%;
-  margin: 0 auto;
-
+  margin: 0;
   /* margin: 10px; */
 }
 
@@ -13,3 +11,37 @@
   height: 100%;
   object-fit: cover;
 }
+
+.work-video__wrapper {
+  display: flex;
+}
+.work-title {
+  font-weight: 800 !important;
+  color: #d13639;
+  transition: 0.5s;
+}
+
+.work-title:hover {
+  color: transparent;
+  -webkit-text-stroke: 3px white;
+}
+
+.work-page a {
+    min-width: 200px;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    color: white !important;
+    background-color: #d13639;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    transition: 0.3s;
+    text-align: center;
+    
+  }
+  
+  .work-page a:hover {
+    color: black !important;
+    cursor: pointer;
+  }
