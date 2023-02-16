@@ -82,7 +82,7 @@ const AboutUs = () => {
       <Box
         sx={{
           background: "rgba(0,0,0,0.4)",
-          height: "100vh",
+          height: "86vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",

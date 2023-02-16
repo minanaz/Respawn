@@ -7,7 +7,6 @@ const WorkPage = () => {
   return (
     <div>
       <Navbar/>
-      Work
       <Work />
       <Footer />
 

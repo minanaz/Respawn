@@ -6,10 +6,9 @@ import WorkDetails from "../components/Work/WorkDetails";
 const WorkDetailsPage = () => {
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <WorkDetails />
       <Footer />
-
     </div>
   );
 };
