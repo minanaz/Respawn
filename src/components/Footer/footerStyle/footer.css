@@ -19,6 +19,10 @@
   margin: 0 40px;
   font-size: 14px;
 }
+.footer-href a:hover {
+  color: #bbbaba !important;
+  transition: 0.2s;
+}
 .footer-social {
   margin: 0 30px;
 }

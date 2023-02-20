@@ -9,10 +9,11 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Auth.css";
 import { styled } from "@mui/material/styles";
+import { useAuth } from "../../contexts/AuthContextProvider";
 const CssTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
     "&.Mui-focused fieldset": {
@@ -25,6 +26,46 @@ const CssTextField = styled(TextField)({
 });
 
 const AuthRegister = () => {
+  const { register, error } = useAuth();
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [country, setCountry] = useState("");
+  const [number, setNumber] = useState("");
+  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSubmit = () => {
+    if (
+      // !name.trim() ||
+      // !surname.trim() ||
+      // !country.trim() ||
+      // !number.trim() ||
+      // !username.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !confirmPassword.trim()
+    ) {
+      alert("Fill in the fields");
+      return;
+    }
+
+    let formData = new FormData();
+    // formData.append("name", name);
+    // formData.append("surname", surname);
+    // formData.append("country", country);
+    // formData.append("number", number);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("password_confirm", confirmPassword);
+    console.log(formData);
+    console.log(email);
+    console.log(password);
+    console.log(confirmPassword);
+    register(formData);
+  };
+
   return (
     <div className="authPage">
       <div className="container">
@@ -82,6 +123,8 @@ const AuthRegister = () => {
                   borderRadius: "4px",
                   fontFamily: "'FF Mark W05', sans-serif",
                 }}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
               <CssTextField
                 className="form-animate"
@@ -93,16 +136,14 @@ const AuthRegister = () => {
                 label="surname"
                 name="surname"
                 // helperText={emailError}
-                // value={email}
-                // onChange={(e) => {
-                //   setEmail(e.target.value);
-                // }}
                 autoComplete="surname"
                 disableUnderline={true}
                 sx={{
                   borderRadius: "4px",
                   fontFamily: "'FF Mark W05', sans-serif",
                 }}
+                value={surname}
+                onChange={(e) => setSurname(e.target.value)}
               />
               <CssTextField
                 className="form-animate"
@@ -114,10 +155,10 @@ const AuthRegister = () => {
                 label="country"
                 name="country"
                 // helperText={emailError}
-                // value={email}
-                // onChange={(e) => {
-                //   setEmail(e.target.value);
-                // }}
+                value={country}
+                onChange={(e) => {
+                  setCountry(e.target.value);
+                }}
                 autoComplete="country"
                 disableUnderline={true}
                 sx={{
@@ -136,16 +177,14 @@ const AuthRegister = () => {
                 label="phone number"
                 name="phone number"
                 // helperText={emailError}
-                // value={email}
-                // onChange={(e) => {
-                //   setEmail(e.target.value);
-                // }}
                 autoComplete="phone number"
                 disableUnderline={true}
                 sx={{
                   borderRadius: "4px",
                   fontFamily: "'FF Mark W05', sans-serif",
                 }}
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
               />
               {/* </div> */}
 
@@ -170,6 +209,8 @@ const AuthRegister = () => {
                   borderRadius: "4px",
                   fontFamily: "'FF Mark W05', sans-serif",
                 }}
+                value={username}
+                onChange={(e) => setUserName(e.target.value)}
               />
               <CssTextField
                 className="form-animate"
@@ -191,6 +232,8 @@ const AuthRegister = () => {
                   borderRadius: "4px",
                   fontFamily: "'FF Mark W05', sans-serif",
                 }}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <CssTextField
                 className="form-animate"
@@ -214,6 +257,8 @@ const AuthRegister = () => {
                   fontFamily: "'FF Mark W05', sans-serif",
                   textAlign: "center",
                 }}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <CssTextField
                 className="form-animate"
@@ -237,6 +282,8 @@ const AuthRegister = () => {
                   fontFamily: "'FF Mark W05', sans-serif",
                   textAlign: "center",
                 }}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
 
@@ -281,7 +328,7 @@ const AuthRegister = () => {
                 mt: "8%",
               }}
             >
-              <button className="signIn-btn"></button>
+              <button className="signIn-btn" onClick={handleSubmit}></button>
 
               <Grid item sx={{ width: "100%", mt: "3%" }}>
                 <Link
