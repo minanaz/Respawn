@@ -17,7 +17,7 @@ import respEntr from "./css/images/resp-entr.jpg";
 import work from "./css/work.css";
 
 import { styled } from "@mui/material/styles";
-import { useWorkContext } from "../../context/WorkContextProvider";
+import { useWorkContext } from "../../contexts/WorkContextProvider";
 const CssTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
     "&.Mui-focused fieldset": {

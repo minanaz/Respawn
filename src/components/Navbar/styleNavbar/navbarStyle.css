@@ -8,24 +8,29 @@
   background-color: #111;
   border-bottom: 2px solid rgba(51, 51, 51, 0.25);
 }
-/* .navbar img {
-  height: 45%;
-  margin-left: 80px;
-} */
 
 .logo {
-  width: 15%;
+  margin-left: 1%;
+  width: 155px;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 }
 
 .logo-img {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF4AAABfCAMAAABWUID5AAAAMFBMVEVHcEz///////////////////////////////////////////////////////////9EPuwCAAAAEHRSTlMAI085DWfH//aigdiRs+frRWbgBgAAActJREFUeNrtmd2SgyAMRg0/MRDA93/bnc66UmC9weSi1e+y0zmTEjyhuDx5ct+AEYuFju08roKhYJvKcZVOfKPzKp904POqEbPT7aoS3vFh1cneXtZg1+4WDXZt7vbdeMrR+4RK+LArxKAG3lczZUF8pddkaXxurU3CeLs0SbJ4di3eyOJzP9Nk8aHH0ydVX3TXfjUtPijve82n1qGucxSN6Qwr+R6j94GfYfjg74UnRiz/ChWR6SK+RHg9tDYMujMvXYPnK/gMh+ybb5I/XBRm8KOR7fZGN0tNmsWzOxlWcXkPTuL90mJOTihmDr+5Fu9r8U0cT+FxaWPrDG4TZM85dmkTdfFJd3HyFJ7gZA1S19ptbmPGkw2yQbej5vBkx+LHrkCZlQJDX+P4uxzOK62YP0jsdpX76zdf8n32AGDjACnJAoDJdHlaEZ19TneftQ/+W/EcjbUmbCp48m73VlDAb7YR5llEhJyk8akdJ0X3uijK4rkf5dr3OZ+Ez6qLMx5hda+Lsih+/Psghx+bCyyvtHDUb1lDyPirTIikNE5KDhnplsOw6OJRCe+rwxVCUC0on2rDqFW8yjvP0YWRhOHcmtYmLGLh7KtnfwBM1sMEK6SVHgAAAABJRU5ErkJggg==);
+  /* background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF4AAABfCAMAAABWUID5AAAAMFBMVEVHcEz///////////////////////////////////////////////////////////9EPuwCAAAAEHRSTlMAI085DWfH//aigdiRs+frRWbgBgAAActJREFUeNrtmd2SgyAMRg0/MRDA93/bnc66UmC9weSi1e+y0zmTEjyhuDx5ct+AEYuFju08roKhYJvKcZVOfKPzKp904POqEbPT7aoS3vFh1cneXtZg1+4WDXZt7vbdeMrR+4RK+LArxKAG3lczZUF8pddkaXxurU3CeLs0SbJ4di3eyOJzP9Nk8aHH0ydVX3TXfjUtPijve82n1qGucxSN6Qwr+R6j94GfYfjg74UnRiz/ChWR6SK+RHg9tDYMujMvXYPnK/gMh+ybb5I/XBRm8KOR7fZGN0tNmsWzOxlWcXkPTuL90mJOTihmDr+5Fu9r8U0cT+FxaWPrDG4TZM85dmkTdfFJd3HyFJ7gZA1S19ptbmPGkw2yQbej5vBkx+LHrkCZlQJDX+P4uxzOK62YP0jsdpX76zdf8n32AGDjACnJAoDJdHlaEZ19TneftQ/+W/EcjbUmbCp48m73VlDAb7YR5llEhJyk8akdJ0X3uijK4rkf5dr3OZ+Ez6qLMx5hda+Lsih+/Psghx+bCyyvtHDUb1lDyPirTIikNE5KDhnplsOw6OJRCe+rwxVCUC0on2rDqFW8yjvP0YWRhOHcmtYmLGLh7KtnfwBM1sMEK6SVHgAAAABJRU5ErkJggg==);
   background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 30%;
+  background-size: cover;
+  background-repeat: no-repeat; */
+  width: 60px;
+}
+
+.logo-img img {
+  width: 100%;
+}
+
+.logo-name {
+  display: flex;
+  align-items: center;
 }
 .logo span {
   color: white;
@@ -66,7 +71,7 @@
   width: 80%;
   margin-left: 9px;
   height: 3px;
-  background-color: red;
+  background-color: rgb(209, 54, 57);
   position: absolute;
   left: 0;
   bottom: -5px;
@@ -74,9 +79,11 @@
 }
 
 .btn-sing-in {
-  font-size: 15px;
-  background-color: red;
-  border: 3px solid red;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: rgb(209, 54, 57);
+  border: 3px solid rgb(209, 54, 57);
   border-radius: 20px;
   height: 40px;
   position: absolute;
@@ -86,7 +93,7 @@
   cursor: pointer;
 }
 .btn-sing-in:hover {
-  border: 2px solid #eb0808;
+  border: 2px solid rgb(209, 54, 57);
   color: #fff;
   background: rgba(215, 31, 31, 0);
   transition: 0.5s;
@@ -126,9 +133,6 @@
 }
 
 @media (max-width: 1200px) {
-  .navbar img {
-    margin-left: 30px;
-  }
   .btn-sing-in {
     margin-right: 40px;
   }
@@ -143,6 +147,12 @@
     padding-left: 10px;
   }
 }
+/* @media (max-width: 1050px) {
+  .logo {
+    width: 30%;
+  }
+} */
+
 @media (max-width: 990px) {
   .navigation {
     display: none;
@@ -238,6 +248,10 @@
   .burger-btn {
     margin-left: 240px;
   }
+
+  /* .logo {
+    width: 20%;
+  } */
 }
 @media (max-width: 793px) {
   .footer {
@@ -254,11 +268,6 @@
   }
 }
 @media (max-width: 640px) {
-  .navbar img {
-    margin-left: 15px;
-    width: 25%;
-    height: 35%;
-  }
   .footer-top {
     flex-direction: column;
   }
@@ -322,10 +331,6 @@
   }
 }
 @media (max-width: 470px) {
-  .navbar img {
-    width: 25%;
-    height: 32%;
-  }
   .burger-btn {
     margin-left: 130px;
   }
@@ -372,10 +377,7 @@
   .navbar {
     height: 70px;
   }
-  .navbar img {
-    width: 30%;
-    height: 36%;
-  }
+
   .burger-btn::before {
     content: "";
     position: absolute;

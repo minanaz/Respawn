@@ -6,11 +6,9 @@ import Navbar from "../components/Navbar/Navbar";
 const GamesPage = () => {
   return (
     <div>
-      <Navbar/>
-      Games
+      <Navbar />
       <Games />
       <Footer />
-
     </div>
   );
 };

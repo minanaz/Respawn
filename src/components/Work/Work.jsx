@@ -33,7 +33,7 @@ import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
 
 import StarIcon from "@mui/icons-material/Star";
-import { useFavorite } from "../../context/FavoritesContextProvider";
+import { useFavorite } from "../../contexts/FavoritesContextProvider";
 
 const Work = () => {
   const [apexTeam, setApexTeam] = useState(0);
