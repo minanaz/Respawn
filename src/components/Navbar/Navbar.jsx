@@ -3,6 +3,8 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextProvider";
 import "./styleNavbar/navbarStyle.css";
 import Burger from "./Burger";
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { IconButton } from "@mui/material";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -51,11 +53,15 @@ const Navbar = () => {
           <></>
         )} */}
       </ul>
+      <IconButton size="large">
+        <StarBorderIcon sx={{color: "white"}} />
+      </IconButton>
       <button onClick={() => navigate("/login")} className="btn-sing-in">Sign In</button>
-      <div className="search">
+      {/* <div className="search">
         <input className="search-inp" type="text" placeholder="search..." />
         <img src="https://ru.reactjs.org/search.svg" alt="" />
-      </div>
+      </div> */}
+      
       {/* 
       <div className="navbar-login">
         {user.email ? (
