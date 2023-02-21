@@ -75,21 +75,7 @@ const Navbar = () => {
         <input className="search-inp" type="text" placeholder="search..." />
         <img src="https://ru.reactjs.org/search.svg" alt="" />
       </div>
-      {/* 
-      <div className="navbar-login">
-        {user.email ? (
-          <button className="login__btn">
-            <span onClick={handleLogOut}>Log Out</span>
-          </button>
-        ) : (
-          <button className="login__btn">
-            <Link to="/auth">
-              {" "}
-              <span style={{ color: "white" }}>Log In</span>
-            </Link>
-          </button>
-        )}
-      </div> */}
+
       <Burger
         active={menuActive}
         setActive={setMenuActive}
