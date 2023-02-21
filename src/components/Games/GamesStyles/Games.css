@@ -38,7 +38,7 @@
   height: 100%;
   display: flex;
   /* justify-content: center; */
-  background-image: url(https://www.respawn.com/media/images/apexlegends_games_background.2e16d0ba.fill-900x588.jpg);
+  /* background-image: url(https://www.respawn.com/media/images/apexlegends_games_background.2e16d0ba.fill-900x588.jpg); */
   background-size: cover;
   /* background-position: 10% 50%; */
   background-repeat: no-repeat;
@@ -132,6 +132,8 @@
 }
 
 .game-title-wrapper {
+  max-width: 35%;
+  width: 35%;
   height: 60%;
   display: flex;
   flex-direction: column;
@@ -141,6 +143,7 @@
   right: 20%;
   z-index: -1;
   /* align-items: flex-start; */
+  text-align: left;
 }
 
 .game-title {
@@ -157,7 +160,7 @@
   color: white;
   font-size: 3em;
   margin: 0;
-  width: 30%;
+  /* width: 30%; */
 }
 
 .game-btn {
@@ -281,6 +284,10 @@
   color: white;
   font-family: oswald, sans-serif;
   letter-spacing: 0.1em;
+}
+
+.swiper-pagination-bullet {
+  background: white;
 }
 
 @media (max-width: 1100px) {

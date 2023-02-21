@@ -7,7 +7,6 @@ const NewsPage = () => {
   return (
     <div>
       <Navbar/>
-      News
       <News />
       <Footer />
 

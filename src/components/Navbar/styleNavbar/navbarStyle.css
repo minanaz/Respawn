@@ -8,7 +8,6 @@
   background-color: #111;
   border-bottom: 2px solid rgba(51, 51, 51, 0.25);
 }
-
 .logo {
   margin-left: 1%;
   width: 155px;
@@ -17,10 +16,6 @@
 }
 
 .logo-img {
-  /* background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF4AAABfCAMAAABWUID5AAAAMFBMVEVHcEz///////////////////////////////////////////////////////////9EPuwCAAAAEHRSTlMAI085DWfH//aigdiRs+frRWbgBgAAActJREFUeNrtmd2SgyAMRg0/MRDA93/bnc66UmC9weSi1e+y0zmTEjyhuDx5ct+AEYuFju08roKhYJvKcZVOfKPzKp904POqEbPT7aoS3vFh1cneXtZg1+4WDXZt7vbdeMrR+4RK+LArxKAG3lczZUF8pddkaXxurU3CeLs0SbJ4di3eyOJzP9Nk8aHH0ydVX3TXfjUtPijve82n1qGucxSN6Qwr+R6j94GfYfjg74UnRiz/ChWR6SK+RHg9tDYMujMvXYPnK/gMh+ybb5I/XBRm8KOR7fZGN0tNmsWzOxlWcXkPTuL90mJOTihmDr+5Fu9r8U0cT+FxaWPrDG4TZM85dmkTdfFJd3HyFJ7gZA1S19ptbmPGkw2yQbej5vBkx+LHrkCZlQJDX+P4uxzOK62YP0jsdpX76zdf8n32AGDjACnJAoDJdHlaEZ19TneftQ/+W/EcjbUmbCp48m73VlDAb7YR5llEhJyk8akdJ0X3uijK4rkf5dr3OZ+Ez6qLMx5hda+Lsih+/Psghx+bCyyvtHDUb1lDyPirTIikNE5KDhnplsOw6OJRCe+rwxVCUC0on2rDqFW8yjvP0YWRhOHcmtYmLGLh7KtnfwBM1sMEK6SVHgAAAABJRU5ErkJggg==);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat; */
   width: 60px;
 }
 
@@ -41,7 +36,6 @@
 
 .navigation {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   list-style: none;
   text-align: center;
@@ -98,36 +92,6 @@
   background: rgba(215, 31, 31, 0);
   transition: 0.5s;
 }
-
-.search {
-  width: 220px;
-  height: 40px;
-  background: #2b2a29;
-  border-radius: 20px;
-  position: absolute;
-  right: 153px;
-}
-.search img {
-  height: 23px;
-  width: 23px;
-  margin: 0;
-  position: absolute;
-  right: 13px;
-  top: 5px;
-}
-.search-inp {
-  font-size: 17px;
-  height: 28px;
-  width: 150px;
-  margin-left: -18px;
-  margin-top: 4px;
-  border: none;
-  background-color: rgba(12, 12, 12, 0);
-  color: white;
-}
-.search-inp:focus {
-  outline: none;
-}
 .menu {
   display: none;
 }
@@ -135,10 +99,6 @@
 @media (max-width: 1200px) {
   .btn-sing-in {
     margin-right: 40px;
-  }
-  .search {
-    position: absolute;
-    right: 125px;
   }
   .navigation__item {
     margin: 0 10px;
@@ -173,7 +133,6 @@
   }
   .burger-btn {
     height: 30px;
-    margin-left: 25%;
     position: absolute;
   }
   .burger-btn::before {
@@ -232,11 +191,6 @@
   }
 }
 @media (max-width: 950px) {
-  .search {
-    width: 200px;
-    position: absolute;
-    right: 105px;
-  }
   .footer-social {
     margin: 0 5px !important;
   }
@@ -249,10 +203,6 @@
   .burger-btn {
     margin-left: 240px;
   }
-
-  /* .logo {
-    width: 20%;
-  } */
 }
 @media (max-width: 793px) {
   .footer {
@@ -289,19 +239,6 @@
   .footer p {
     font-size: 12px;
   }
-  .search {
-    width: 170px;
-    position: absolute;
-    right: 95px;
-  }
-  .search-inp {
-    width: 115px;
-  }
-  .search img {
-    width: 20px !important;
-    height: 20px !important;
-    margin-top: 3px !important;
-  }
   .btn-sing-in {
     width: 70px !important;
     height: 35px !important;
@@ -316,7 +253,6 @@
     height: 130px !important;
   }
   .footer-social {
-    /* margin:5px !important; */
     margin-top: 6px !important;
     margin-bottom: 3px !important;
   }
@@ -333,21 +269,21 @@
 }
 @media (max-width: 470px) {
   .burger-btn {
-    margin-left: 130px;
+    margin-left: 170px;
   }
   .burger-btn::before {
     content: "";
     position: absolute;
     top: 0;
     width: 30px;
-    background-color: white;
+    background-color: rgb(249, 241, 241);
     height: 2px;
   }
   .burger-btn span {
     position: absolute;
     top: 10px;
     width: 30px;
-    background-color: white;
+    background-color: rgb(242, 240, 240);
     height: 1px;
   }
   .burger-btn::after {
@@ -355,26 +291,17 @@
     position: absolute;
     top: 20px;
     width: 30px;
-    background-color: white;
+    background-color: rgb(238, 232, 232);
     height: 2px;
   }
   .menu__content {
     width: 150px !important;
-  }
-  .search {
-    height: 35px;
-  }
-  .search-inp {
-    margin: 2px -2px;
   }
   .btn-sing-in {
     height: 35px;
   }
 }
 @media (max-width: 430px) {
-  .search {
-    display: none;
-  }
   .navbar {
     height: 70px;
   }
@@ -384,14 +311,14 @@
     position: absolute;
     top: 2px;
     width: 25px;
-    background-color: white;
+    background-color: rgb(239, 235, 235);
     height: 2px;
   }
   .burger-btn span {
     position: absolute;
     top: 10px;
     width: 25px;
-    background-color: white;
+    background-color: rgb(239, 234, 234);
     height: 1px;
   }
   .burger-btn::after {
@@ -399,7 +326,7 @@
     position: absolute;
     top: 18px;
     width: 25px;
-    background-color: white;
+    background-color: rgb(246, 238, 238);
     height: 2px;
   }
   .menu__content {

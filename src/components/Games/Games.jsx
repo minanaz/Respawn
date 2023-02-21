@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
@@ -12,9 +12,17 @@ import "./GamesStyles/Games.css";
 // import required modules
 import { Mousewheel, Pagination, Parallax, Keyboard, EffectFade } from "swiper";
 import GameCard from "./GameCard";
+import { useGames } from "../../contexts/GamesContextProvider";
 
 const Games = () => {
   const [hide, setHide] = useState(false);
+  const { games, getGames } = useGames();
+
+  useEffect(() => {
+    getGames();
+  }, []);
+
+  console.log(games);
   return (
     <div className="games">
       <Swiper
@@ -35,13 +43,13 @@ const Games = () => {
         className="mySwiper"
         onSlideChange={() => setHide(true)}
       >
-        <SwiperSlide>
-          <GameCard hide={hide} setHide={setHide} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <GameCard hide={hide} setHide={setHide} />
-        </SwiperSlide>
-        <SwiperSlide style={{ color: "white" }}>
+        {games.map((item) => (
+          <SwiperSlide>
+            <GameCard hide={hide} setHide={setHide} item={item} />
+          </SwiperSlide>
+        ))}
+
+        {/* <SwiperSlide style={{ color: "white" }}>
           {({ isActive }) => (
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
@@ -54,10 +62,7 @@ const Games = () => {
               This is animated 3 Slide
             </motion.div>
           )}
-        </SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </div>
   );

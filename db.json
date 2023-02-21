@@ -1,0 +1,86 @@
+{
+  "work": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "news": [
+    {
+      "title": "WHAT MAKES APEX TISK: A DEVELOPER DEEP DIVE INTO SERVERS AND NETCODE",
+      "description": "Apex Legends lead engineer Ricklesauceur explores common online issues that players face, their causes, and our efforts to address them.",
+      "image": "https://www.respawn.com/media/images/APEX_Legends_Screenshot_Season2_CG.50e05ec3.fill-594x447.png",
+      "date": "Feb 1, 2022",
+      "id": 1
+    },
+    {
+      "title": "RESPAWN FAMILY ALBUM: SHAWN WILSON",
+      "description": "Learn about not only one of the OGs of Respawn, but one of the best animators of the Video Game industry, Shawn Wilson.",
+      "image": "https://www.respawn.com/media/images/shawnWilson-apex-moCap.2e16d0ba.fill-594x447.jpg",
+      "date": "May 2, 2022",
+      "id": 2
+    },
+    {
+      "title": "APEX LEGENDS MOBILE REGIONAL BETAS START SOON",
+      "description": "Soon we're kicking off the first regional beta tests for Apex Legends Mobile.",
+      "image": "https://www.respawn.com/media/images/apex-mobile-art-featured-image.jpg.2e16d0ba.fill-594x447.jpg",
+      "date": "Jul 3 , 2022",
+      "id": 3
+    },
+    {
+      "title": "RESPAWN RESPONDS // Cheaters, Player Feedback, and 2021 Priorities",
+      "description": "This week we're joined by Apex Legends Design Director, Jason McCord to talk about how the Apex Legends team deals with cheaters, player feedback, and our big priorities for this year.",
+      "image": "https://www.respawn.com/media/images/Website_header_01.2e16d0ba.fill-594x447.png",
+      "date": "Jun 3 , 2022",
+      "id": 4
+    }
+  ],
+  "games": [
+    {
+      "name": "APEX LEGENDS",
+      "poster": "https://www.respawn.com/media/images/Box_ApexWeb.2e16d0ba.fill-514x717.jpg",
+      "description": "  Conquer with character in Apex Legends™, a free-to-play battle royale game where legendary challengers fight for glory, fame, and fortune on the fringes of the Frontier. Choose from a roster of unique characters and experience the next evolution of battle royale.",
+      "created_at": "Released february 2019",
+      "background": "https://www.respawn.com/media/images/apexlegends_games_background.2e16d0ba.fill-900x588.jpg",
+      "compony": "Respawn Entartainment",
+      "id": 1
+    },
+    {
+      "name": "STAR WARS JEDI: FALLEN ORDER",
+      "poster": "https://www.respawn.com/media/images/SWJFO_ESRB.820c31a2.fill-514x717.jpg",
+      "description": "A GALAXY-SPANNING ADVENTURE AWAITS IN STAR WARS JEDI: FALLEN ORDER, A STORY-DRIVEN 3RD PERSON ACTION-ADVENTURE TITLE FROM RESPAWN ENTERTAINMENT. BECOME A JEDI - As a former Padawan on the run, you must stay one step ahead of the Empire in a story-driven adventure featuring exploration, combat, and puzzle-solving. THE GALAXY AWAITS - Visit alien worlds both familiar and entirely new to Star Wars with the freedom to explore and re-traverse locations. FEEL THE FORCE - Engage in thoughtful combat to size up your enemies and find the right movement to strike with a suite of powerful Force abilities and the iconic lightsaber. STAR WARS JEDI: FALLEN ORDER is available now for PS4, Xbox, and PC.",
+      "created_at": "Released november 15, 2019",
+      "background": "https://www.respawn.com/media/images/jedi_02.a4843e40.fill-900x588.jpg",
+      "compony": "Respawn Entartainment",
+      "id": 2
+    },
+    {
+      "name": "MEDAL OF HONOR: ABOVE AND BEYOND",
+      "poster": "https://www.respawn.com/media/images/moh_02_pY1KmeD.89eb4379.fill-514x717.jpg",
+      "description": "Medal of Honor: Above and Beyond is an action-packed and incredibly immersive VR experience set in World War II, where you step into the boots of an agent of the Office of Strategic Services (OSS) in war torn Europe. A deep single-player campaign takes you through historic events on land, air, and sea, sabotaging Nazi bases, subverting enemy plans, aiding the French Resistance, and much, much more.",
+      "created_at": "COMING SOON",
+      "background": "https://www.respawn.com/media/images/moh_03.2e16d0ba.fill-900x588.jpg",
+      "compony": "Respawn Entartainment",
+      "id": 3
+    },
+    {
+      "name": "TITANFALL 2",
+      "poster": "https://www.respawn.com/media/images/tf2_games_page.2e16d0ba.fill-514x717.jpg",
+      "description": "Titanfall 2 delivers best-in-class shooter gameplay backed by more depth and variety including new Titans – each with their own unique abilities. In the single player campaign, Titanfall 2 explores the unique bond between man and machine. Stranded behind IMC enemy lines, and against overwhelming odds, you must team up with a veteran Vanguard-class Titan and uphold a mission you were never meant to carry out.",
+      "created_at": "RELEASED SEPTEMBER 2016",
+      "background": "https://www.respawn.com/media/images/tf2_games_background.ce923070.fill-900x588.jpg",
+      "compony": "Respawn Entartainment",
+      "id": 4
+    },
+    {
+      "name": "TITANFALL",
+      "poster": "https://www.respawn.com/media/images/tf_games_thumb.d9eaf39a.fill-514x717.jpg",
+      "description": "The first game we created after starting Respawn, Titanfall is a online multiplayer first person shooter available for Xbox One, Xbox 360, and PC that combines elite Pilots with fluid wall-running, double-jumping action and powerful, heavily-armored, 24-foot Titans.",
+      "created_at": "RELEASED MARCH 2014",
+      "background": "https://www.respawn.com/media/images/Titanfall_1.4c90e158.fill-900x588.jpg",
+      "compony": "Respawn Entartainment",
+      "id": 4
+    }
+  ]
+}

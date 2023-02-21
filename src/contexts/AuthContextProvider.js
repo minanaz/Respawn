@@ -25,7 +25,6 @@ const AuthContextProvider = ({ children }) => {
   const login = async (formData, email) => {
     try {
       const res = await axios.post(API_LOGIN, formData);
-      console.log(res);
       localStorage.setItem("token", JSON.stringify(res.data));
       localStorage.setItem("username", JSON.stringify(email));
       console.log(res.data);
@@ -53,6 +52,13 @@ const AuthContextProvider = ({ children }) => {
       setError(error);
       console.log(error);
     }
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    setUser("");
+    navigate("/");
   };
 
   useEffect(() => {
