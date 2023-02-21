@@ -203,7 +203,7 @@ const AuthRegister = () => {
                 // onChange={(e) => {
                 //   setEmail(e.target.value);
                 // }}
-                autoComplete="username"
+                // autoComplete="username"
                 disableUnderline={true}
                 sx={{
                   borderRadius: "4px",
