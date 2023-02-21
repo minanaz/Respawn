@@ -1,23 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNews } from "../../contexts/NewsContextProvider";
 
 const News = () => {
-  let news = [
-    {
-      title: "APEX LEGENDS",
-      description: "Soon bla bla",
-      image:
-        "https://www.respawn.com/media/images/apex-mobile-art-featured-image.jpg.2e16d0ba.fill-594x447.jpg",
-      date: "Jun 3, 2022",
-      id: 1,
-    },
-  ];
-  return (
-    <div>
-      {news.map((item) => (
-        <div></div>
-      ))}
-    </div>
-  );
+  const { news, getNews, deleteNews, editNews, newsDetails } = useNews();
+
+  useEffect(() => {
+    getNews();
+  }, []);
+
+  console.log(news);
+  return <div></div>;
 };
 
 export default News;

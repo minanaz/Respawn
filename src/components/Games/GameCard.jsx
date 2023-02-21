@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const GameCard = ({ hide, setHide }) => {
+const GameCard = ({ hide, setHide, item }) => {
   const [slide, setSlide] = useState("");
 
   useEffect(() => {
@@ -21,18 +21,15 @@ const GameCard = ({ hide, setHide }) => {
 
   return (
     <div className="game-card">
-      <div className={`game-content ${slide}`}>
+      <div
+        className={`game-content ${slide}`}
+        style={{ backgroundImage: `url(${item.background})` }}
+      >
         <div className="game-slider">
           <div className="game-slider-tint">
             <div className="game-details">
               <div className="game-details-text">
-                <p>
-                  Conquer with character in Apex Legends™, a free-to-play battle
-                  royale game where legendary challengers fight for glory, fame,
-                  and fortune on the fringes of the Frontier. Choose from a
-                  roster of unique characters and experience the next evolution
-                  of battle royale.
-                </p>
+                <p>{item.description}</p>
               </div>
               <div className="game-details-buttons">
                 <Link>
@@ -53,15 +50,18 @@ const GameCard = ({ hide, setHide }) => {
         </div>
         <div className="game-content-right">
           <div
-            data-aos="fade-down"
+            // data-aos="fade-down"
             // data-aos-easing="linear"
-            data-aos-duration="1000"
+            // data-aos-duration="1000"
             className="game-border"
           >
             <div className="game-tint"></div>
           </div>
 
-          <div className="game-img">
+          <div
+            className="game-img"
+            style={{ backgroundImage: `url(${item.poster})` }}
+          >
             {/* <img src="https://www.respawn.com/media/images/Box_ApexWeb.2e16d0ba.fill-514x717.jpg" /> */}
             <div
               className="game-btn"
@@ -85,8 +85,8 @@ const GameCard = ({ hide, setHide }) => {
       </div>
       <div className="game-title-wrapper">
         <div className="game-title">
-          <h5 className="game-title_release">Released february 2019</h5>
-          <h2 className="game-title_title">APEX LEGENDS</h2>
+          <h5 className="game-title_release">{item.created_at}</h5>
+          <h2 className="game-title_title">{item.name}</h2>
         </div>
       </div>
     </div>

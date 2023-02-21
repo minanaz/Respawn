@@ -5,6 +5,8 @@ import "./styleNavbar/navbarStyle.css";
 import Burger from "./Burger";
 
 const Navbar = () => {
+  const { user, logout } = useAuth();
+
   const navigate = useNavigate();
   const pages = [
     { name: "HOME", link: "/", id: 1 },
@@ -21,7 +23,6 @@ const Navbar = () => {
     { value: "NEWS", href: "/news" },
     { value: "GAMES", href: "/games" },
   ];
-  // const { user, handleLogOut } = useAuth();
   return (
     <div className="navbar">
       <div className="logo">
@@ -58,9 +59,18 @@ const Navbar = () => {
           <></>
         )} */}
       </ul>
-      <button onClick={() => navigate("/login")} className="btn-sing-in">
+      {user ? (
+        <button onClick={logout} className="btn-sing-in">
+          Sign Out
+        </button>
+      ) : (
+        <button onClick={() => navigate("/login")} className="btn-sing-in">
+          Sign In
+        </button>
+      )}
+      {/* <button onClick={() => navigate("/login")} className="btn-sing-in">
         Sign In
-      </button>
+      </button> */}
       <div className="search">
         <input className="search-inp" type="text" placeholder="search..." />
         <img src="https://ru.reactjs.org/search.svg" alt="" />

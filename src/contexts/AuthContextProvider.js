@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_LOGIN, API_LOGIN_REFRESH, API_REGISTER } from "../helpers/consts";
 
@@ -25,7 +25,6 @@ const AuthContextProvider = ({ children }) => {
   const login = async (formData, email) => {
     try {
       const res = await axios.post(API_LOGIN, formData);
-      console.log(res);
       localStorage.setItem("token", JSON.stringify(res.data));
       localStorage.setItem("username", JSON.stringify(email));
       console.log(res.data);
@@ -54,6 +53,19 @@ const AuthContextProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    setUser("");
+    navigate("/");
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      checkAuth();
+    }
+  }, []);
 
   let value = {
     register,
