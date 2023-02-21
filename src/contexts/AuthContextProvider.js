@@ -68,8 +68,11 @@ const AuthContextProvider = ({ children }) => {
   }, []);
 
   let value = {
+    user,
+
     register,
     login,
+    logout,
 
     error,
   };

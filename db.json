@@ -8,11 +8,32 @@
   ],
   "news": [
     {
-      "title": "APEX LEGENDS",
-      "description": "Soon bla bla",
-      "image": "https://www.respawn.com/media/images/apex-mobile-art-featured-image.jpg.2e16d0ba.fill-594x447.jpg",
-      "date": "Jun 3, 2022",
+      "title": "WHAT MAKES APEX TISK: A DEVELOPER DEEP DIVE INTO SERVERS AND NETCODE",
+      "description": "Apex Legends lead engineer Ricklesauceur explores common online issues that players face, their causes, and our efforts to address them.",
+      "image": "https://www.respawn.com/media/images/APEX_Legends_Screenshot_Season2_CG.50e05ec3.fill-594x447.png",
+      "date": "Feb 1, 2022",
       "id": 1
+    },
+    {
+      "title": "RESPAWN FAMILY ALBUM: SHAWN WILSON",
+      "description": "Learn about not only one of the OGs of Respawn, but one of the best animators of the Video Game industry, Shawn Wilson.",
+      "image": "https://www.respawn.com/media/images/shawnWilson-apex-moCap.2e16d0ba.fill-594x447.jpg",
+      "date": "May 2, 2022",
+      "id": 2
+    },
+    {
+      "title": "APEX LEGENDS MOBILE REGIONAL BETAS START SOON",
+      "description": "Soon we're kicking off the first regional beta tests for Apex Legends Mobile.",
+      "image": "https://www.respawn.com/media/images/apex-mobile-art-featured-image.jpg.2e16d0ba.fill-594x447.jpg",
+      "date": "Jul 3 , 2022",
+      "id": 3
+    },
+    {
+      "title": "RESPAWN RESPONDS // Cheaters, Player Feedback, and 2021 Priorities",
+      "description": "This week we're joined by Apex Legends Design Director, Jason McCord to talk about how the Apex Legends team deals with cheaters, player feedback, and our big priorities for this year.",
+      "image": "https://www.respawn.com/media/images/Website_header_01.2e16d0ba.fill-594x447.png",
+      "date": "Jun 3 , 2022",
+      "id": 4
     }
   ],
   "games": [
