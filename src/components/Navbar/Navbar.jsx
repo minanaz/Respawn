@@ -3,6 +3,8 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import "./styleNavbar/navbarStyle.css";
 import Burger from "./Burger";
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { IconButton } from "@mui/material";
 
 const Navbar = () => {
   const { user, logout } = useAuth();

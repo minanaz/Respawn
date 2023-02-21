@@ -13,6 +13,7 @@ import EditWorkPage from "./pages/EditWorkPage";
 import CartPage from "./pages/CartPage";
 import AuthLoginPage from "./pages/AuthLoginPage";
 import AuthRegisterPage from "./pages/AuthRegisterPage";
+import FavoritesPage from "./pages/FavoritesPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -29,6 +30,7 @@ const MainRoutes = () => {
     { link: "/cart", element: <CartPage />, id: 8 },
     { link: "/edit-news/:id", element: <EditNewsPage />, id: 10 },
     { link: "/edit-work/:id", element: <EditWorkPage />, id: 11 },
+    { link: "/favorites", element: <FavoritesPage />, id: 12 },
   ];
 
   return (

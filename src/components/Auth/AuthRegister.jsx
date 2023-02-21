@@ -52,10 +52,10 @@ const AuthRegister = () => {
     }
 
     let formData = new FormData();
-    // formData.append("name", name);
-    // formData.append("surname", surname);
-    // formData.append("country", country);
-    // formData.append("number", number);
+    formData.append("name", name);
+    formData.append("surname", surname);
+    formData.append("country", country);
+    formData.append("number", number);
     formData.append("email", email);
     formData.append("password", password);
     formData.append("password_confirm", confirmPassword);

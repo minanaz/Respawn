@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import AuthContextProvider from "./contexts/AuthContextProvider";
+import FavoritesContextProvider from "./contexts/FavoritesContextProvider";
+import WorkContextProvider from "./contexts/WorkContextProvider";
 import GamesContextProvider from "./contexts/GamesContextProvider";
 import NewsContextProvider from "./contexts/NewsContextProvider";
 
@@ -14,7 +16,11 @@ root.render(
       <AuthContextProvider>
         <GamesContextProvider>
           <NewsContextProvider>
-            <App />
+            <WorkContextProvider>
+              <FavoritesContextProvider>
+                <App />
+              </FavoritesContextProvider>
+            </WorkContextProvider>
           </NewsContextProvider>
         </GamesContextProvider>
       </AuthContextProvider>
