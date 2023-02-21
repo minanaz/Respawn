@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContextProvider";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContextProvider";
 import "./styleNavbar/navbarStyle.css";
 import Burger from "./Burger";
 
 const Navbar = () => {
+  const { user, logout } = useAuth();
+
   const navigate = useNavigate();
   const pages = [
     { name: "HOME", link: "/", id: 1 },
@@ -23,12 +25,18 @@ const Navbar = () => {
     { value: "GAMES", href: "/games" },
     { value: "SAVED", href: "/cart" },
   ];
-  // const { user, handleLogOut } = useAuth();
   return (
     <div className="navbar">
       <div className="logo">
-        <div className="logo-img"></div>
-        <span>Respawn</span>
+        <div className="logo-img">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF4AAABfCAMAAABWUID5AAAAMFBMVEVHcEz///////////////////////////////////////////////////////////9EPuwCAAAAEHRSTlMAI085DWfH//aigdiRs+frRWbgBgAAActJREFUeNrtmd2SgyAMRg0/MRDA93/bnc66UmC9weSi1e+y0zmTEjyhuDx5ct+AEYuFju08roKhYJvKcZVOfKPzKp904POqEbPT7aoS3vFh1cneXtZg1+4WDXZt7vbdeMrR+4RK+LArxKAG3lczZUF8pddkaXxurU3CeLs0SbJ4di3eyOJzP9Nk8aHH0ydVX3TXfjUtPijve82n1qGucxSN6Qwr+R6j94GfYfjg74UnRiz/ChWR6SK+RHg9tDYMujMvXYPnK/gMh+ybb5I/XBRm8KOR7fZGN0tNmsWzOxlWcXkPTuL90mJOTihmDr+5Fu9r8U0cT+FxaWPrDG4TZM85dmkTdfFJd3HyFJ7gZA1S19ptbmPGkw2yQbej5vBkx+LHrkCZlQJDX+P4uxzOK62YP0jsdpX76zdf8n32AGDjACnJAoDJdHlaEZ19TneftQ/+W/EcjbUmbCp48m73VlDAb7YR5llEhJyk8akdJ0X3uijK4rkf5dr3OZ+Ez6qLMx5hda+Lsih+/Psghx+bCyyvtHDUb1lDyPirTIikNE5KDhnplsOw6OJRCe+rwxVCUC0on2rDqFW8yjvP0YWRhOHcmtYmLGLh7KtnfwBM1sMEK6SVHgAAAABJRU5ErkJggg=="
+            alt=""
+          />
+        </div>
+        <div className="logo-name">
+          <span>Respawn</span>
+        </div>
       </div>
       <div className="burger-btn" onClick={() => setMenuActive(!menuActive)}>
         <span />
@@ -42,9 +50,23 @@ const Navbar = () => {
           </Link>
         ))}
       </ul>
-      <button onClick={() => navigate("/login")} className="btn-sing-in">
+      {user ? (
+        <button onClick={logout} className="btn-sing-in">
+          Sign Out
+        </button>
+      ) : (
+        <button onClick={() => navigate("/login")} className="btn-sing-in">
+          Sign In
+        </button>
+      )}
+      {/* <button onClick={() => navigate("/login")} className="btn-sing-in">
         Sign In
-      </button>
+      </button> */}
+      {/* <div className="search">
+        <input className="search-inp" type="text" placeholder="search..." />
+        <img src="https://ru.reactjs.org/search.svg" alt="" />
+      </div> */}
+      {/* 
       <div className="navbar-login">
         {/* {user.email ? (
           <button className="login__btn">
@@ -58,7 +80,7 @@ const Navbar = () => {
             </Link>
           </button>
         )} */}
-      </div>
+      {/* </div> */}
       <Burger
         active={menuActive}
         setActive={setMenuActive}
