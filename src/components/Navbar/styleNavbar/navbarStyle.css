@@ -166,6 +166,7 @@
     left: 0;
     transform: translateX(-100%);
     transition: all 0.5s;
+    z-index: 88;
   }
   .menu.active {
     transform: translateX(0);

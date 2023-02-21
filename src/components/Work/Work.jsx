@@ -4,12 +4,13 @@ import {
   IconButton,
   InputLabel,
   MenuItem,
+  Pagination,
   Select,
   TextField,
   Typography,
 } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import work from "./css/work.css";
 
@@ -30,10 +31,11 @@ import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import StarIcon from "@mui/icons-material/Star";
 import { useFavorite } from "../../contexts/FavoritesContextProvider";
+import { useWorkContext } from "../../contexts/WorkContextProvider";
 
 const Work = () => {
   const [apexTeam, setApexTeam] = useState(0);
@@ -41,10 +43,37 @@ const Work = () => {
   const [swFps, setSwFps] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
 
+  // const [vacancies, setVacancies] = useState("")
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const { addToFavorites, deleteFromFavorites, checkInFavorites } =
     useFavorite();
 
+  const { getVacancies, vacancies, pages } = useWorkContext();
+
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    getVacancies();
+  }, []);
+
+  useEffect(() => {
+    getVacancies();
+  }, [searchParams]);
+
+
+  useEffect(() => {
+    setSearchParams({
+      page: currentPage,
+    });
+  }, [currentPage]);
+
+  console.log(vacancies);
+  console.log(pages);
 
   const apexTeamInfo = [
     {
@@ -99,43 +128,6 @@ const Work = () => {
     },
   ];
 
-  const vacancy = [
-    {
-      title: "PRODUCTION COORDINATOR",
-      group: "ADMINISTRATIVE",
-      team: "APEX LEGENDS",
-      location: "VANCOUVER",
-      id: 0,
-    },
-    {
-      title: "PRODUCTION COORDINATOR",
-      group: "ADMINISTRATIVE",
-      team: "APEX LEGENDS",
-      location: "LOS ANGELES - CHATSWORTH",
-      id: 1,
-    },
-    {
-      title: "PRODUCT MANAGER INTERN",
-      group: "PRODUCT MANAGEMENT",
-      team: "APEX LEGENDS",
-      location: "OFFSITE - PENNSYLVANIA",
-      id: 2,
-    },
-    {
-      title: "SENIOR TECHNICAL ANIMATOR",
-      group: "ART",
-      team: "STAR WARS JEDI: SURVIVOR",
-      location: "LOS ANGELES - CHATSWORTH",
-      id: 3,
-    },
-    {
-      title: "CINEMATIC LEAD",
-      group: "ART",
-      team: "STAR WARS FPS",
-      location: "LOS ANGELES - CHATSWORTH",
-      id: 4,
-    },
-  ];
 
   return (
     <div className="work-page">
@@ -459,12 +451,12 @@ const Work = () => {
                     }}
                     size="small"
                   >
-                    <InputLabel id="demo-select-small">Age</InputLabel>
+                    <InputLabel id="demo-select-small">Groups</InputLabel>
                     <Select
                       labelId="demo-select-small"
                       id="demo-select-small"
                       // value={age}
-                      label="Age"
+                      label="Groups"
                       // onChange={handleChange}
                     >
                       <MenuItem value="">
@@ -485,12 +477,12 @@ const Work = () => {
                     }}
                     size="small"
                   >
-                    <InputLabel id="demo-select-small">Age</InputLabel>
+                    <InputLabel id="demo-select-small">Team</InputLabel>
                     <Select
                       labelId="demo-select-small"
                       id="demo-select-small"
                       // value={age}
-                      label="Age"
+                      label="Team"
                       // onChange={handleChange}
                     >
                       <MenuItem value="">
@@ -511,12 +503,12 @@ const Work = () => {
                     }}
                     size="small"
                   >
-                    <InputLabel id="demo-select-small">Age</InputLabel>
+                    <InputLabel id="demo-select-small">Location</InputLabel>
                     <Select
                       labelId="demo-select-small"
                       id="demo-select-small"
                       // value={age}
-                      label="Age"
+                      label="Location"
                       // onChange={handleChange}
                     >
                       <MenuItem value="">
@@ -533,25 +525,23 @@ const Work = () => {
 
             {/* =========================================================================== */}
 
-            {vacancy.map((item, index) => (
+            {vacancies.map((item, index) => (
               <Box sx={{ display: "flex" }}>
                 <IconButton
                   size="small"
                   onClick={() => {
-                    if (checkInFavorites(index)) {
-                      // setIsFavorite(true)
-                      return deleteFromFavorites(index);
+                    if (checkInFavorites(item.id)) {
+                      return deleteFromFavorites(item.id);
                     } else {
-                      // setIsFavorite(false);
                       addToFavorites(item);
                     }
                   }}
-                  color={checkInFavorites(index) ? "error" : ""}
+                  color={checkInFavorites(item.id) ? "error" : ""}
                 >
                   <StarIcon />
                 </IconButton>
                 <Box
-                  onClick={() => navigate("/work/1")}
+                  onClick={() => navigate(`/work/${item.id}`)}
                   className="work-list-content"
                   sx={{
                     display: "flex",
@@ -572,7 +562,7 @@ const Work = () => {
                       fontWeight: "bold",
                     }}
                   >
-                    {item.title}
+                    {item.role}
                   </Typography>
                   <Box
                     sx={{
@@ -589,7 +579,7 @@ const Work = () => {
                         marginRight: { xs: "10px", md: "0px" },
                         paddingRight: { xs: "10px", md: "0px" },
                         width: { md: "30%", xs: "100xp" },
-                        fontSize: "14px",
+                        fontSize: "13px",
                         textAlign: "start",
                       }}
                     >
@@ -601,7 +591,7 @@ const Work = () => {
                         marginRight: { xs: "10px", md: "0px" },
                         paddingRight: { xs: "10px", md: "0px" },
                         width: { md: "30%", xs: "100xp" },
-                        fontSize: "14px",
+                        fontSize: "13px",
                         textAlign: "start",
                       }}
                     >
@@ -612,7 +602,7 @@ const Work = () => {
                         marginRight: { xs: "10px", md: "0px" },
                         paddingRight: { xs: "10px", md: "0px" },
                         width: { md: "30%", xs: "100xp" },
-                        fontSize: "14px",
+                        fontSize: "13px",
                         textAlign: "start",
                       }}
                     >
@@ -622,6 +612,16 @@ const Work = () => {
                 </Box>
               </Box>
             ))}
+
+            <Box>
+              <Pagination
+                count={pages}
+                page={currentPage}
+                variant="outlined"
+                color="primary"
+                onChange={(e, p) => setCurrentPage(p)}
+              />
+            </Box>
           </Box>
         </Container>
       </Box>

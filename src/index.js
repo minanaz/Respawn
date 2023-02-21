@@ -12,11 +12,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
-        <FavoritesContextProvider>
-          <WorkContextProvider>
+        <WorkContextProvider>
+          <FavoritesContextProvider>
             <App />
-          </WorkContextProvider>
-        </FavoritesContextProvider>
+          </FavoritesContextProvider>
+        </WorkContextProvider>
       </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>

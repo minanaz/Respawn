@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import { useWorkContext } from './WorkContextProvider';
 
 
 export const favoritesContext = createContext();
@@ -6,6 +7,7 @@ export const useFavorite = () => useContext(favoritesContext);
 
 const FavoritesContextProvider = ({children}) => {
     const [favorites, setfavorites] = useState(getFavorites());
+    const { getVacancies } = useWorkContext();
 
 
 
@@ -23,6 +25,7 @@ const FavoritesContextProvider = ({children}) => {
         fav.push(obj)
 
         localStorage.setItem("favorites", JSON.stringify(fav));
+        getVacancies();
     }
 
     function deleteFromFavorites(id){
@@ -32,6 +35,7 @@ const FavoritesContextProvider = ({children}) => {
             return item
         }) 
         localStorage.setItem("favorites", JSON.stringify(res));
+        getVacancies();
     }
 
     function checkInFavorites(id){

@@ -18,6 +18,7 @@ import work from "./css/work.css";
 
 import { styled } from "@mui/material/styles";
 import { useWorkContext } from "../../contexts/WorkContextProvider";
+import { useParams } from "react-router-dom";
 const CssTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
     "&.Mui-focused fieldset": {
@@ -31,7 +32,6 @@ const CssTextField = styled(TextField)({
 
 const WorkDetails = () => {
   const [isApplyBtnClick, setIsApplyBtnClick] = useState(false);
-  const {addResume} = useWorkContext();
   const [resume, setResume] = useState({
     name: "",
     lastName: "",
@@ -41,10 +41,16 @@ const WorkDetails = () => {
     description: "",
     findOther: "",
   });
-  const [fileRes, setFileRes] = useState();
+  const [fileRes, setFileRes] = useState("");
   const [whereFind, setWhereFind] = useState("");
   const [location, setLocation] = useState("");
-  console.log(location);
+  const {oneVacancy, getVacancy, addResume} = useWorkContext();
+  const params = useParams();
+
+  useEffect(()=>{
+    getVacancy(params.id);
+  }, [])
+
   function handleSubmit() {
     let formData = new FormData();
 
@@ -70,17 +76,18 @@ const WorkDetails = () => {
     //   "name": resume.name
     // }
 
-    addResume(formData)
+    addResume(formData);
   }
-
 
   function handleChange(e) {
     setResume({ ...resume, [e.target.name]: e.target.value });
   }
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  console.log(oneVacancy.demands);
 
   return (
     <div className="work-details-page">
@@ -133,7 +140,7 @@ const WorkDetails = () => {
                   fontSize: "12px",
                 }}
               >
-                Game Production Leadership
+                {oneVacancy.group}
               </Typography>
               <Typography
                 sx={{
@@ -143,7 +150,7 @@ const WorkDetails = () => {
                   mb: "20px",
                 }}
               >
-                HARD SURFACE/CHARACTER CONCEPT ART INTERN
+                {oneVacancy.role}
               </Typography>
               <Typography
                 sx={{
@@ -154,7 +161,7 @@ const WorkDetails = () => {
                   padding: "0 10px",
                 }}
               >
-                APEX LEGENDS
+                {oneVacancy.team}
               </Typography>
             </Box>
           </Container>
@@ -232,7 +239,7 @@ const WorkDetails = () => {
                 maxWidth: "700px",
               }}
             >
-              Privileges
+              Requirements
             </Typography>
             <ListItem>
               A successful track record in an administrative/coordinator support
@@ -339,7 +346,7 @@ const WorkDetails = () => {
               </FormControl>
 
               <CssTextField
-                value={fileRes}
+                // value={fileRes}
                 onChange={(e) => setFileRes(e.target.files[0])}
                 label="Add resume"
                 focused

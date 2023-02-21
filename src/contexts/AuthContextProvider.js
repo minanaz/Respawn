@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_LOGIN, API_LOGIN_REFRESH, API_REGISTER } from "../helpers/consts";
 
@@ -54,6 +54,12 @@ const AuthContextProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      checkAuth();
+    }
+  }, []);
 
   let value = {
     register,
