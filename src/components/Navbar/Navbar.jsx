@@ -16,7 +16,7 @@ const Navbar = () => {
     { name: "CAREERS", link: "/work", id: 3 },
     { name: "NEWS", link: "/news", id: 4 },
     { name: "GAMES", link: "/games", id: 5 },
-    { name: "SAVED", link: "/cart", id: 5 },
+    { name: "SAVED", link: "/favorites", id: 5 },
   ];
   const [menuActive, setMenuActive] = useState(false);
   const items = [
@@ -25,7 +25,7 @@ const Navbar = () => {
     { value: "CAREERS", href: "/work" },
     { value: "NEWS", href: "/news" },
     { value: "GAMES", href: "/games" },
-    { value: "SAVED", href: "/cart" },
+    { value: "SAVED", href: "/favorites" },
   ];
   return (
     <div className="navbar">

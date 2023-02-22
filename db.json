@@ -114,5 +114,147 @@
       "compony": "Respawn Entartainment",
       "id": 5
     }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "ART"
+    },
+    {
+      "id": 2,
+      "title": "ADMINISTRATIVE"
+    },
+    {
+      "id": 3,
+      "title": "GAME DESIGN"
+    },
+    {
+      "id": 4,
+      "title": "SOFTWARE DEVELOPMENT"
+    },
+    {
+      "id": 5,
+      "title": "AUDIO"
+    }
+  ],
+  "teams": [
+    {
+      "id": 1,
+      "title": "APEX LEGENDS"
+    },
+    {
+      "id": 2,
+      "title": "STAR WARS JEDI: SURVIVOR"
+    },
+    {
+      "id": 3,
+      "title": "STAR WARS FPS"
+    },
+    {
+      "id": 4,
+      "title": "NEW GAME INCUBATION TEAM"
+    }
+  ],
+  "vacancies": [
+    {
+      "id": 1,
+      "role": "PRODUCTION COORDINATOR",
+      "description": "Founded in 2010 by the original creators of the Call of Duty Franchise, Respawn was created with the philosophy that when talented people have creative freedom, they'll make extraordinary games that achieve the unexpected. From our roots as an indie studio to joining the expansive roster of studios at Electronic Arts, this remains our guiding principle. We truly love what we do and want to share our passion with players worldwide. Our shipped titles include critically acclaimed multi-platform games Apex Legends, Titanfall, Titanfall 2, Star Wars™ Jedi: Fallen Order and Medal of Honor: Above and Beyond.",
+      "groupId": 2,
+      "teamId": 1,
+      "location": "VANCOUVER",
+      "responsibilities": ["Assist in managing processes to increase efficiency on behalf of the team", "Manage promotional merchandise (swag)/gifts orders and deliveries to team members.", "Work with IT to proactively manage hardware and software needs for the Studio/Team.", "Assist with Space planning and coordinating moves.", "Attend information & training sessions related to new studio processes."],
+      "requirements": ["A successful track record in an administrative/coordinator support function.", "Advanced software skills in Google Suite.", "Experience working in an administrative assistant function for global teams", "Experience in having organized team building or social events", "Excellent organization and logistics skills"]
+    },
+    {
+      "id": 2,
+      "role": "TECHNICAL ARTIST",
+      "description": "Founded in 2010 by the original creators of the Call of Duty Franchise, Respawn was created with the philosophy that when talented people have creative freedom, they'll make extraordinary games that achieve the unexpected. From our roots as an indie studio to joining the expansive roster of studios at Electronic Arts, this remains our guiding principle. We truly love what we do and want to share our passion with players worldwide. Our shipped titles include critically acclaimed multi-platform games Apex Legends, Titanfall, Titanfall 2, Star Wars™ Jedi: Fallen Order and Medal of Honor: Above and Beyond. Join us for the opportunity to create groundbreaking games with some of the best developer talents in the industry.",
+      "groupId": 1,
+      "teamId": 1,
+      "location": "VANCOUVER",
+      "responsibilities": ["Design and implement complex skeletons, control rigs, secondary animation (fat, jiggle), and skin deformations", "Design, develop, deploy, and maintain animation tools, workflows, and pipelines to improve production efficiency", "Implement techniques and processes to solve character and animation and deformation challenges as identified by the department lead"],
+      "requirements": ["3+ years of technical art/rigging/animation experience with multiple shipped game titles and/or VFX/feature animation", "Experience with Python, C# or C++ and familiarity with the Maya API (MotionBuilder API experience a plus)", "Strong background in rigging and skinning complex character assets", "Understanding of animation principles and human anatomy"]
+    },
+    {
+      "id": 3,
+      "role": "CINEMATIC LEAD",
+      "description": "We are seeking a Lead Cinematics Artist to join our growing team. As a Lead Cinematics Artist on the project, you will be at the center of our multidisciplinary collaboration bringing a new Star Wars story and characters to life. We’re looking for an excellent storyteller and visual artist that is also an accomplished manager who can coordinate our cinematic needs with multiple art departments.",
+      "groupId": 1,
+      "teamId": 3,
+      "location": "LOS ANGELES - CHATSWORTH",
+      "responsibilities": ["Collaborate with Animation, Lighting, Narrative, Audio and other art departments to create real-time cinematics and other narrative content.", "Be a champion for our story and characters and find the best ways to present them to our players.", "Own the in-engine implementation of cinematic content.", "Develop and drive the pipelines and processes required to execute high quality cinematics."],
+      "requirements": ["8+ years professional experience working in cinematics and interactive narratives for games.", "Experience with body and facial performance capture pipelines.", "The ability to design a production pipeline and establish the processes, planning, and documentation required to roll that pipeline out to a team.", "A strong understanding of visual storytelling, cinematography, editing, and scene composition."]
+    },
+    {
+      "id": 4,
+      "role": "SENIOR LEVEL DESIGNER",
+      "description": "Apex Legends is looking for a creative Senior Level Designer to help shape the future of our multiplayer maps. You'll work on designing levels and map updates from early blockouts through to release. If you have experience developing multiplayer maps for shooters and you are familiar with the battle royale genre, we are looking for you!",
+      "groupId": 3,
+      "teamId": 1,
+      "location": "LOS ANGELES - CHATSWORTH",
+      "responsibilities": ["Work closely with the dev team to develop the vision for your map.", "Be the vision holder of your map and drive it from initial concept to ship.", "Align and collaborate with multiple disciplines and departments on the dev team.","Analyze existing maps and bring solutions to problem spaces through updates."],
+      "requirements": ["3+ years professional experience as a level designer. Ideally, within the multiplayer shooter genre.", "Some experience with using text-based scripting languages.", "Ability to block out maps quickly, gather feedback, and iterate rapidly.", "Good sense for game feel and map flow."]
+    },
+    {
+      "id": 5,
+      "role": "VFX PATHFINDER INTERN",
+      "description": "We are looking for a VFX Pathfinder to join Respawn for the Summer of 2023. This is a paid internship. You will be reporting to the VFX Director for this project. We are only considering students who will be enrolled in a Bachelor's program and are slated to graduate between May 2025 through June 2026.",
+      "groupId": 1,
+      "teamId": 2,
+      "location": "LOS ANGELES - CHATSWORTH",
+      "responsibilities": ["Use Unreal, Max and/or Maya and possibly Houdini to create VFX that astonish players and make the game more immersive.", "Author VFX that fit within the performance budget and look beautiful.", "Properly organize assets for use within the project.", "Assist other VFX Artists and the Director."],
+      "requirements": ["Currently enrolled in a college, university degree program and slated to graduate between May 2025 through June 2026.", "Available to work full-time hours (40hrs per week) for 12 weeks in Summer 2023"]
+    },
+    {
+      "id": 6,
+      "role": "SFX INTERN",
+      "description": "We're looking for an SFX Intern to join our team and help us deliver our next incredible experience for players. You must be available for a full-time paid internship in the summer of 2023 (May - September depending on start date). We are only considering students who will be enrolled in an accredited degree program in the Summer of 2023, slated to graduate between December 2023 through June 2024. Applicants must be legally authorized to work in the US on a full time basis during the entirety of the internship. Visa sponsorship is not available for this position.",
+      "groupId": 5,
+      "teamId": 2,
+      "location": "LOS ANGELES - CHATSWORTH",
+      "responsibilities": ["Record, design, and edit sounds in Reaper", "Implement sounds in Wwise", "Implement sounds and audio volumes in Unreal"],
+      "requirements": ["Currently enrolled in a college, university degree program", "Authorized to work in the U.S.", "Some familiarity with audio middleware (Wwise preferred) and game engine scripting (Unreal Blueprints preferred)"]
+    },
+    {
+      "id": 7,
+      "role": "LEAD MISSION DESIGNER",
+      "description": "We are seeking an experienced Lead Mission Gameplay Designer with expertise in creating engaging exciting level experiences and strong leadership skills to join us in creating our new Star Wars First Person Shooter game. Leading a team of talented gameplay designers, you’ll guide the development of the levels across the game. We are looking for someone who thinks about the entire process of creating engaging, varied, unique, and fun FPS levels.",
+      "groupId": 3,
+      "teamId": 3,
+      "location": "LOS ANGELES - CHATSWORTH",
+      "responsibilities": ["Reporting to the Lead Mission Designer, you’ll guide a team creating levels from beginning to end.", "Pitch and develop engaging fun gameplay content.", "Collaborate and guide the development of tools and best practices for level scripting and the gameplay experience.","Establish the quality standards, then review and guide the development process to deliver a high-quality fun game experience."],
+      "requirements": ["10+ years' experience in the games industry working in a level design capacity, shipping at least one title including a shipped AAA game.", "People management experience and a desire to guide and develop team members", "Experience working with the Unreal game engine, with strong understanding of implementation and integration into the pipeline.", "Extensive experience and insight into developing the game environment with an understanding to create an engaging game experience.", "Experience in rapid prototyping to test feasibility of concepts."]
+    },
+    {
+      "id": 8,
+      "role": "SENIOR UI ENGINEER",
+      "description": "As a UI Engineer, you will have the opportunity to build new engine features, tools and establish new workflows that enable the team to do their best work. You will collaborate with a wide range of disciplines on game features and work closely with our UX Designers and Artists to help fully realize their visions.",
+      "groupId": 4,
+      "teamId": 1,
+      "location": "LOS ANGELES - CHATSWORTH",
+      "responsibilities": ["Contribute to the creation of a new, robust UI framework.", "Hands on development of UI tech and content shipping within a live game environment.", "Collaborate with designers, artists and other engineers on features and systems.", "Design, implement, test, debug and document high quality C++ code.", "Proactively identify issues and fix bugs."],
+      "requirements": ["5+ years’ experience of professional game development.","Fluency in C/C++.", "Excellent math skills with an emphasis on 2D math.", "Experience with large code bases."]
+    },
+    {
+      "id": 9,
+      "role": "SENIOR TOOLS/ENGINE ENGINEER ",
+      "description": "You are passionate about making great games in a collaborative environment with teams of accomplished developers. You enjoy working with content creators, such as animators, artists and level designers to understand and optimize development workflows and pipelines, removing frustrations for the content teams and generally improving their quality-of-life, freeing them up to use their strengths.",
+      "groupId": 4,
+      "teamId": 2,
+      "location": "VANCOUVER",
+      "responsibilities": ["Be part of a small and agile tools team creating and improving existing content tools and pipelines. Your primary customers are the content teams, i.e. animators, level designers, engineers, 3D artists, 2D artists and related.", "Write C/C++/C# code and several scripting languages."],
+      "requirements": ["Passion for making and playing games.", "C/C++, and C# skills. Nice to have Python or other scripting language experience.", "Excellent math skills with an emphasis on 3D math.", "Been part of a team that has shipped at least one AAA title."]
+    },
+    {
+      "id": 10,
+      "role": "SENIOR SOFTWARE ENGINEER - C++",
+      "description": "We are looking for a Senior Generalist Software Engineer to join a compact incubation team currently developing a brand new IP. ",
+      "groupId": 4,
+      "teamId": 4,
+      "location": "LOS ANGELES - CHATSWORTH",
+      "responsibilities": ["Solve problems efficiently in all areas of development, learning as needed, and deliver high impact outcomes through a deep understanding of what matters when.", "Active participation in promoting and building an inclusive work environment.", "Basic ‘self-as-producer’ activity, such as estimating & tracking your time spent on tasks."],
+      "requirements": ["You love building, playing and understanding games.", "Fluency in C/C++.", "Working knowledge of vector math and linear algebra.", "5+ years of game dev experience with at least 1 title shipped.", "Introspective and reflective so you’ll be able to tell us how your experience molded you."]
+    }
   ]
 }

@@ -7,9 +7,13 @@ export const API_FORGOT_PASSWORD_COMPLETE =
   "http://34.125.130.63/forgot_password_complete/";
 
 // !=========== VACANCY =============
-export const VACANCY_API = "http://34.125.130.63/vecency/";
-export const TEAM_API = "http://34.125.130.63/team/";
-export const GROUP_API = "http://34.125.130.63/group/";
+
+// export const VACANCY_API = "http://34.125.130.63/vecency/";
+export const VACANCIES_API = "http://localhost:8000/vacancies";
+
+export const TEAM_API = "http://localhost:8000/teams";
+export const GROUP_API = "http://localhost:8000/groups";
+// export const VACANCY_API = "http://34.125.130.63/vecency/";
 
 // !=========== RESUME =============
 export const RESUME_API = "http://34.125.130.63/resume/";
