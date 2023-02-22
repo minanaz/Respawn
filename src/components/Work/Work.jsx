@@ -38,6 +38,12 @@ import { useFavorite } from "../../contexts/FavoritesContextProvider";
 import { useWorkContext } from "../../contexts/WorkContextProvider";
 
 const Work = () => {
+  const { addToFavorites, deleteFromFavorites, checkInFavorites } =
+    useFavorite();
+
+  const { getVacancies, vacancies, teams, getGroups, getTeams, groups } =
+    useWorkContext();
+  
   const [apexTeam, setApexTeam] = useState(0);
   const [starWars, setStarWars] = useState(0);
   const [swFps, setSwFps] = useState(0);
@@ -46,34 +52,49 @@ const Work = () => {
   // const [vacancies, setVacancies] = useState("")
   const [currentPage, setCurrentPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const { addToFavorites, deleteFromFavorites, checkInFavorites } =
-    useFavorite();
-
-  const { getVacancies, vacancies, pages } = useWorkContext();
-
+  const [search, setSearch] = useState(searchParams.get("q") || "");
+  const [filtGroups, setFiltGroups] = useState("");
+  const [filtTeams, setFiltTeams] = useState("");
+  const [page, setPage] = useState(1);
+  const count = Math.ceil(vacancies.length / 5);
+  
+  
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    getVacancies();
-  }, []);
+    setSearchParams({
+      q: search,
+    });
+  }, [search]);
 
   useEffect(() => {
     getVacancies();
   }, [searchParams]);
-
-
+  
   useEffect(() => {
-    setSearchParams({
-      page: currentPage,
-    });
-  }, [currentPage]);
+    getVacancies();
+    getTeams();
+    getGroups();
+  }, []);
 
-  console.log(vacancies);
-  console.log(pages);
+  // useEffect(() => {
+  //   getVacancies();
+  // }, [searchParams]);
+
+  // useEffect(() => {
+  //   setSearchParams({
+  //     page: currentPage,
+  //   });
+  // }, [currentPage]);
+
+  function currentData() {
+    const begin = (page - 1) * 5;
+    const end = begin + 5;
+    return vacancies.slice(begin, end);
+  }
 
   const apexTeamInfo = [
     {
@@ -127,7 +148,6 @@ const Work = () => {
       content: `With this project, the team is excited to carry on the excellence that Jedi: Fallen Order established for Star Wars games within Respawn, combining it with the studio’s pedigree for making best-in-class FPS titles such as Apex Legends and the beloved Titanfall series. Peter says he has "always been inspired by the classic Star Wars titles Dark Forces and Jedi Knight: Dark Forces 2," and that he's "never forgotten that emotion and excitement playing a fun, single-player FPS inside the Star Wars universe." For Peter and the team, this project is an absolute dream come true. It is a story they have always wanted to tell.`,
     },
   ];
-
 
   return (
     <div className="work-page">
@@ -428,8 +448,8 @@ const Work = () => {
                 size="small"
                 id="input-with-icon-textfield"
                 label="Search..."
-                // value={search}
-                // onChange={(e) => setSearch(e.target.value)}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
                 sx={{ width: { sm: "38%", xs: "100%" } }}
                 variant="outlined"
               />
@@ -442,7 +462,7 @@ const Work = () => {
                   mt: { xs: "10px", sm: "0" },
                 }}
               >
-                <Grid item xs={12} sm={4} sx={{ padding: "0" }}>
+                <Grid item xs={12} sm={4}>
                   <FormControl
                     color="error"
                     sx={{
@@ -455,20 +475,20 @@ const Work = () => {
                     <Select
                       labelId="demo-select-small"
                       id="demo-select-small"
-                      // value={age}
+                      value={filtGroups}
                       label="Groups"
-                      // onChange={handleChange}
+                      onChange={(e) => setFiltGroups(e.target.value)}
                     >
-                      <MenuItem value="">
-                        <em>None</em>
+                      <MenuItem value="all">
+                        ALL
                       </MenuItem>
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
+                      {groups.map((item) => (
+                        <MenuItem value={item.id}>{item.title}</MenuItem>
+                      ))}
                     </Select>
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={12} sm={4} sx={{ padding: "0" }}>
                   <FormControl
                     color="error"
                     sx={{
@@ -477,24 +497,23 @@ const Work = () => {
                     }}
                     size="small"
                   >
-                    <InputLabel id="demo-select-small">Team</InputLabel>
+                    <InputLabel id="demo-select-small">Teams</InputLabel>
                     <Select
                       labelId="demo-select-small"
                       id="demo-select-small"
-                      // value={age}
-                      label="Team"
-                      // onChange={handleChange}
+                      value={filtTeams}
+                      label="Teams"
+                      onChange={(e) => setFiltTeams(e.target.value)}
                     >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
+                      <MenuItem value={"all"}>ALL</MenuItem>
+                      {teams.map((item) => (
+                        <MenuItem value={item.id}>{item.title}</MenuItem>
+                      ))}
                     </Select>
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                
+                {/* <Grid item xs={12} sm={4}>
                   <FormControl
                     color="error"
                     sx={{
@@ -519,107 +538,207 @@ const Work = () => {
                       <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
                   </FormControl>
-                </Grid>
+                </Grid> */}
               </Grid>
             </Box>
 
             {/* =========================================================================== */}
 
-            {vacancies.map((item, index) => (
-              <Box sx={{ display: "flex" }}>
-                <IconButton
-                  size="small"
-                  onClick={() => {
-                    if (checkInFavorites(item.id)) {
-                      return deleteFromFavorites(item.id);
-                    } else {
-                      addToFavorites(item);
-                    }
-                  }}
-                  color={checkInFavorites(item.id) ? "error" : ""}
-                >
-                  <StarIcon />
-                </IconButton>
-                <Box
-                  onClick={() => navigate(`/work/${item.id}`)}
-                  className="work-list-content"
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    flexDirection: { xs: "column", md: "row" },
-                    padding: "20px",
-                    background: `${index % 2 == 0 ? "" : "#e2e1de"}`,
-                    minHeight: "50px",
-                    width: "100%",
-                  }}
-                >
-                  <Typography
-                    className="work-list-title"
-                    sx={{
-                      width: { md: "41%", xs: "100%" },
-                      textAlign: "start",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {item.role}
-                  </Typography>
-                  <Box
-                    sx={{
-                      width: { xs: "100%", md: "59%" },
-                      display: "flex",
-                      justifyContent: { md: "space-between", xs: "none" },
-                      flexWrap: "wrap",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Typography
+            {(filtGroups != "all" && filtGroups != "" || filtTeams != "all" && filtTeams != "")
+              ? currentData().map((item, index) => {
+                 if ((item.groupId == filtGroups && item.teamId == filtTeams && (filtGroups != "all" && filtTeams != "all")) || (item.groupId == filtGroups && (filtGroups != "all" && filtTeams == "all")) || (item.teamId == filtTeams && (filtGroups == "all" && filtTeams != "all")))
+                    return (
+                      <Box sx={{ display: "flex" }}>
+                        <IconButton
+                          size="small"
+                          onClick={() => {
+                            if (checkInFavorites(item.id)) {
+                              return deleteFromFavorites(item.id);
+                            } else {
+                              addToFavorites(item);
+                            }
+                          }}
+                          color={checkInFavorites(item.id) ? "error" : ""}
+                        >
+                          <StarIcon />
+                        </IconButton>
+                        <Box
+                          onClick={() => navigate(`/work/${item.id}`)}
+                          className="work-list-content"
+                          sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            flexDirection: { xs: "column", md: "row" },
+                            padding: "20px",
+                            background: `${index % 2 == 0 ? "" : "#e2e1de"}`,
+                            minHeight: "50px",
+                            width: "100%",
+                          }}
+                        >
+                          <Typography
+                            className="work-list-title"
+                            sx={{
+                              width: { md: "41%", xs: "100%" },
+                              textAlign: "start",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            {item.role}
+                          </Typography>
+                          <Box
+                            sx={{
+                              width: { xs: "100%", md: "59%" },
+                              display: "flex",
+                              justifyContent: {
+                                md: "space-between",
+                                xs: "none",
+                              },
+                              flexWrap: "wrap",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                borderRight: {
+                                  xs: "1px solid grey",
+                                  md: "none",
+                                },
+                                marginRight: { xs: "10px", md: "0px" },
+                                paddingRight: { xs: "10px", md: "0px" },
+                                width: { md: "30%", xs: "100xp" },
+                                fontSize: "13px",
+                                textAlign: "start",
+                              }}
+                            >
+                              {groups[item.groupId-1]?.title}
+                            </Typography>
+                            <Typography
+                              sx={{
+                                borderRight: {
+                                  xs: "1px solid grey",
+                                  md: "none",
+                                },
+                                marginRight: { xs: "10px", md: "0px" },
+                                paddingRight: { xs: "10px", md: "0px" },
+                                width: { md: "30%", xs: "100xp" },
+                                fontSize: "13px",
+                                textAlign: "start",
+                              }}
+                            >
+                              {teams[item.teamId-1]?.title}
+                            </Typography>
+                            <Typography
+                              sx={{
+                                marginRight: { xs: "10px", md: "0px" },
+                                paddingRight: { xs: "10px", md: "0px" },
+                                width: { md: "30%", xs: "100xp" },
+                                fontSize: "13px",
+                                textAlign: "start",
+                              }}
+                            >
+                              {item.location}
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </Box>
+                    );
+                })
+              : currentData().map((item, index) => (
+                  <Box sx={{ display: "flex" }}>
+                    <IconButton
+                      size="small"
+                      onClick={() => {
+                        if (checkInFavorites(item.id)) {
+                          return deleteFromFavorites(item.id);
+                        } else {
+                          addToFavorites(item);
+                        }
+                      }}
+                      color={checkInFavorites(item.id) ? "error" : ""}
+                    >
+                      <StarIcon />
+                    </IconButton>
+                    <Box
+                      onClick={() => navigate(`/work/${item.id}`)}
+                      className="work-list-content"
                       sx={{
-                        borderRight: { xs: "1px solid grey", md: "none" },
-                        marginRight: { xs: "10px", md: "0px" },
-                        paddingRight: { xs: "10px", md: "0px" },
-                        width: { md: "30%", xs: "100xp" },
-                        fontSize: "13px",
-                        textAlign: "start",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        flexDirection: { xs: "column", md: "row" },
+                        padding: "20px",
+                        background: `${index % 2 == 0 ? "" : "#e2e1de"}`,
+                        minHeight: "50px",
+                        width: "100%",
                       }}
                     >
-                      {item.group}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        borderRight: { xs: "1px solid grey", md: "none" },
-                        marginRight: { xs: "10px", md: "0px" },
-                        paddingRight: { xs: "10px", md: "0px" },
-                        width: { md: "30%", xs: "100xp" },
-                        fontSize: "13px",
-                        textAlign: "start",
-                      }}
-                    >
-                      {item.team}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        marginRight: { xs: "10px", md: "0px" },
-                        paddingRight: { xs: "10px", md: "0px" },
-                        width: { md: "30%", xs: "100xp" },
-                        fontSize: "13px",
-                        textAlign: "start",
-                      }}
-                    >
-                      {item.location}
-                    </Typography>
+                      <Typography
+                        className="work-list-title"
+                        sx={{
+                          width: { md: "41%", xs: "100%" },
+                          textAlign: "start",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {item.role}
+                      </Typography>
+                      <Box
+                        sx={{
+                          width: { xs: "100%", md: "59%" },
+                          display: "flex",
+                          justifyContent: { md: "space-between", xs: "none" },
+                          flexWrap: "wrap",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            borderRight: { xs: "1px solid grey", md: "none" },
+                            marginRight: { xs: "10px", md: "0px" },
+                            paddingRight: { xs: "10px", md: "0px" },
+                            width: { md: "30%", xs: "100xp" },
+                            fontSize: "13px",
+                            textAlign: "start",
+                          }}
+                        >
+                          {groups[item.groupId-1]?.title}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            borderRight: { xs: "1px solid grey", md: "none" },
+                            marginRight: { xs: "10px", md: "0px" },
+                            paddingRight: { xs: "10px", md: "0px" },
+                            width: { md: "30%", xs: "100xp" },
+                            fontSize: "13px",
+                            textAlign: "start",
+                          }}
+                        >
+                          {teams[item.teamId-1]?.title}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            marginRight: { xs: "10px", md: "0px" },
+                            paddingRight: { xs: "10px", md: "0px" },
+                            width: { md: "30%", xs: "100xp" },
+                            fontSize: "13px",
+                            textAlign: "start",
+                          }}
+                        >
+                          {item.location}
+                        </Typography>
+                      </Box>
+                    </Box>
                   </Box>
-                </Box>
-              </Box>
-            ))}
+                ))}
 
             <Box>
               <Pagination
-                count={pages}
-                page={currentPage}
+                count={count}
+                page={page}
                 variant="outlined"
                 color="primary"
-                onChange={(e, p) => setCurrentPage(p)}
+                onChange={(e, p) => setPage(p)}
               />
             </Box>
           </Box>
