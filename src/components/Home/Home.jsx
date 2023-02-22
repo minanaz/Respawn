@@ -27,7 +27,7 @@ const Home = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              mb: "20px"
+              mb: "20px",
             }}
           >
             <Typography
@@ -41,7 +41,9 @@ const Home = () => {
             >
               NEWS
             </Typography>
-            <button className="news-btn">More news</button>
+            <button className="news-btn" onClick={() => navigate("/news")}>
+              More news
+            </button>
           </Box>
           <Box>
             <Grid container spacing={4}>

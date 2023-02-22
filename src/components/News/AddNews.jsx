@@ -26,28 +26,19 @@ const CssTextField = styled(TextField)({
   },
 });
 
-const EditNews = () => {
-  const { getNewsDetails, newsDetails, editNews } = useNews();
+const AddNews = () => {
+  const { addNews } = useNews();
 
-  const [updatedNews, setUpdatedNews] = useState(newsDetails);
+  const [newNews, setNewNews] = useState({});
 
-  const params = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    getNewsDetails(params.id);
-  }, []);
-
-  useEffect(() => {
-    setUpdatedNews(newsDetails);
-  }, [newsDetails]);
-
   const handleChange = (e) => {
-    setUpdatedNews({ ...updatedNews, [e.target.name]: [e.target.value] });
+    setNewNews({ ...newNews, [e.target.name]: [e.target.value] });
   };
 
   const handleSave = () => {
-    editNews(params.id, updatedNews);
+    addNews(newNews);
     navigate("/news");
   };
 
@@ -87,7 +78,7 @@ const EditNews = () => {
             marginTop: 10,
           }}
         >
-          <h5 className="auth-title">Edit news</h5>
+          <h5 className="auth-title">What's new?</h5>
 
           <div className="login-wrapper">
             <CssTextField
@@ -98,9 +89,9 @@ const EditNews = () => {
               fullWidth
               name="title"
               // helperText={emailError}
-              value={updatedNews.title}
+              value={newNews.title}
+              label="your title goes here"
               onChange={handleChange}
-              autoComplete="title"
               autoFocus
               disableUnderline={true}
               sx={{
@@ -115,7 +106,8 @@ const EditNews = () => {
               required
               fullWidth
               name="description"
-              value={updatedNews.description}
+              label="your description goes here"
+              value={newNews.description}
               onChange={handleChange}
               sx={{
                 // border: "2px solid rgba(126,126,126,0.1)",
@@ -131,7 +123,8 @@ const EditNews = () => {
               required
               fullWidth
               name="date"
-              value={updatedNews.date}
+              label="your date goes here"
+              value={newNews.date}
               onChange={handleChange}
               sx={{
                 // border: "2px solid rgba(126,126,126,0.1)",
@@ -147,7 +140,8 @@ const EditNews = () => {
               required
               fullWidth
               name="image"
-              value={updatedNews.image}
+              label="your image url goes here"
+              value={newNews.image}
               onChange={handleChange}
               sx={{
                 // border: "2px solid rgba(126,126,126,0.1)",
@@ -166,4 +160,4 @@ const EditNews = () => {
   );
 };
 
-export default EditNews;
+export default AddNews;
