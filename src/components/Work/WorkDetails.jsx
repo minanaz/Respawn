@@ -44,12 +44,32 @@ const WorkDetails = () => {
   const [fileRes, setFileRes] = useState("");
   const [whereFind, setWhereFind] = useState("");
   const [location, setLocation] = useState("");
-  const {oneVacancy, getVacancy, addResume} = useWorkContext();
+  const {
+    oneVacancy,
+    getOneVacancy,
+    addResume,
+    groups,
+    teams,
+    getGroups,
+    getTeams,
+  } = useWorkContext();
+  const [check, setCheck] = useState(true);
   const params = useParams();
 
-  useEffect(()=>{
-    getVacancy(params.id);
-  }, [])
+  let respons = [];
+  let requirs = [];
+  useEffect(() => {
+    getOneVacancy(params.id);
+    getTeams();
+    getGroups();
+    setCheck(!check);
+  }, []);
+
+  // useEffect(() => {
+  //   respons = oneVacancy.demands.split(" ");
+  //   requirs = oneVacancy.privileges.split("\r\n");
+
+  // }, [check]);
 
   function handleSubmit() {
     let formData = new FormData();
@@ -86,8 +106,6 @@ const WorkDetails = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  console.log(oneVacancy.demands);
 
   return (
     <div className="work-details-page">
@@ -140,7 +158,7 @@ const WorkDetails = () => {
                   fontSize: "12px",
                 }}
               >
-                {oneVacancy.group}
+                {groups[oneVacancy.groupId - 1]?.title}
               </Typography>
               <Typography
                 sx={{
@@ -161,7 +179,7 @@ const WorkDetails = () => {
                   padding: "0 10px",
                 }}
               >
-                {oneVacancy.team}
+                {teams[oneVacancy.teamId - 1]?.title}
               </Typography>
             </Box>
           </Container>
@@ -182,20 +200,7 @@ const WorkDetails = () => {
               textAlign: "start",
             }}
           >
-            As the Director, Operations, you will be responsible for ensuring
-            the members of the cross discipline teams can effectively move
-            products and features through the development cycle and out to
-            players. This includes: turning the product vision into an
-            operational framework, developing and executing the operational
-            strategy of the product, driving the “how” of the work that happens
-            on its various teams. You’re obsessed with understanding how the
-            needs of the audience, the direction of the business, the health of
-            the team and the critical elements of its products are translated
-            into action. You work closely with the Executive Producer, the Game
-            Director, and product stakeholders to make sure the approach to work
-            on the business is well-defined, that its talent systems are
-            effectively adhered to, and that resources are allocated
-            appropriately.
+            {oneVacancy?.description}
           </Typography>
           <List
             sx={{
@@ -213,21 +218,14 @@ const WorkDetails = () => {
             >
               Responsibilities
             </Typography>
-            <ListItem>
-              Accountable for developing and executing the operational strategy
-              of the product
-            </ListItem>
-            <ListItem>
-              Ensuring all teams in the business unit make and meet commitments
-            </ListItem>
-            <ListItem>
-              Develop systems to ensure problems with delivery are regularly and
-              quickly diagnosed and addressed
-            </ListItem>
+            {oneVacancy?.responsibilities?.map((item) => (
+              <ListItem>{item}</ListItem>
+            ))}
           </List>
           <List
             sx={{
               fontSize: { sm: "20px", xs: "14px" },
+              maxWidth: "700px",
             }}
           >
             <Typography
@@ -241,14 +239,9 @@ const WorkDetails = () => {
             >
               Requirements
             </Typography>
-            <ListItem>
-              A successful track record in an administrative/coordinator support
-              function.
-            </ListItem>
-            <ListItem>Working knowledge of Google Office Suite</ListItem>
-            <ListItem>
-              Experience in having organized team building or social events
-            </ListItem>
+            {oneVacancy?.requirements?.map((item) => (
+              <ListItem>{item}</ListItem>
+            ))}
           </List>
           <Box className="apply-wrapper" sx={{ width: "70%" }}>
             <button onClick={() => setIsApplyBtnClick(!isApplyBtnClick)}>
@@ -288,6 +281,7 @@ const WorkDetails = () => {
                 onChange={handleChange}
                 sx={{ width: "100%" }}
                 variant="outlined"
+                placeholder="ivan.ivanov@gmail.com"
               />
               <TextField
                 color="error"
@@ -298,6 +292,7 @@ const WorkDetails = () => {
                 onChange={handleChange}
                 sx={{ width: "100%" }}
                 variant="outlined"
+                placeholder="https://github.com/IvanIvanov"
               />
               <TextField
                 color="error"
