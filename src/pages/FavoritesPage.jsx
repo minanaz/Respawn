@@ -1,16 +1,16 @@
 import React from "react";
 import Footer from "../components/Footer/Footer";
-import Home from "../components/Home/Home";
 import Navbar from "../components/Navbar/Navbar";
+import Favorites from "../components/Work/Favorites";
 
-const HomePage = () => {
+const FavoritesPage = () => {
   return (
     <div>
       <Navbar />
-      <Home />
+      <Favorites />
       <Footer />
     </div>
   );
 };
 
-export default HomePage;
+export default FavoritesPage;

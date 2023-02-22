@@ -11,7 +11,9 @@
       "title": "WHAT MAKES APEX TISK: A DEVELOPER DEEP DIVE INTO SERVERS AND NETCODE",
       "description": "Apex Legends lead engineer Ricklesauceur explores common online issues that players face, their causes, and our efforts to address them.",
       "image": "https://www.respawn.com/media/images/APEX_Legends_Screenshot_Season2_CG.50e05ec3.fill-594x447.png",
-      "date": "Feb 1, 2022",
+      "date": [
+        "Feb 2, 2022"
+      ],
       "id": 1
     },
     {
@@ -34,6 +36,36 @@
       "image": "https://www.respawn.com/media/images/Website_header_01.2e16d0ba.fill-594x447.png",
       "date": "Jun 3 , 2022",
       "id": 4
+    },
+    {
+      "title": [
+        "MINAA"
+      ],
+      "description": [
+        "AAAAA"
+      ],
+      "date": [
+        "Feb 22, 2022"
+      ],
+      "image": [
+        "https://i.pinimg.com/originals/d6/76/9e/d6769eec016778c410413e4915712cf5.png"
+      ],
+      "id": 5
+    },
+    {
+      "title": [
+        "TIMAAA"
+      ],
+      "description": [
+        "GO GO"
+      ],
+      "date": [
+        "Feb 22, 2022"
+      ],
+      "image": [
+        "https://i.pinimg.com/originals/80/63/d1/8063d1a132eb09a64405d61c9bf49b8c.png"
+      ],
+      "id": 6
     }
   ],
   "games": [
@@ -80,7 +112,7 @@
       "created_at": "RELEASED MARCH 2014",
       "background": "https://www.respawn.com/media/images/Titanfall_1.4c90e158.fill-900x588.jpg",
       "compony": "Respawn Entartainment",
-      "id": 4
+      "id": 5
     }
   ]
 }
