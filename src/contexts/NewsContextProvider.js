@@ -56,7 +56,7 @@ const NewsContextProvider = ({ children }) => {
       // };
 
       //   const res = await axios.post(API_NEWS, obj, config);
-      const res = await axios.post(API_NEWS, obj);
+      const res = await axios.post(API_NEWS, obj);  
       console.log(res.data);
     } catch (error) {
       console.log(error);

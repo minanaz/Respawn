@@ -4,8 +4,7 @@ import { useNews } from "../../contexts/NewsContextProvider";
 import "./newsDetailsStyle/NewsDetailsStyle.css";
 
 const NewsDetails = () => {
-  const { news, deleteNews, editNews, newsDetails, getNewsDetails } =
-    useNews();
+  const { news, deleteNews, editNews, newsDetails, getNewsDetails } = useNews();
   const params = useParams();
 
   useEffect(() => {
