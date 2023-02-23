@@ -9,20 +9,21 @@ export const API_FORGOT_PASSWORD_COMPLETE =
 // !=========== VACANCY =============
 
 // export const VACANCY_API = "http://34.125.130.63/vecency/";
-export const VACANCIES_API = "http://localhost:8000/vacancies";
+export const VACANCIES_API =
+  "https://alert-screeching-headphones.glitch.me/vacancies";
 
-export const TEAM_API = "http://localhost:8000/teams";
-export const GROUP_API = "http://localhost:8000/groups";
+export const TEAM_API = "https://alert-screeching-headphones.glitch.me/teams";
+export const GROUP_API = "https://alert-screeching-headphones.glitch.me/groups";
 // export const VACANCY_API = "http://34.125.130.63/vecency/";
 
 // !=========== RESUME =============
 export const RESUME_API = "http://34.125.130.63/resume/";
 
 // !=========== GAMES =============
-export const API_GAMES = "http://localhost:8000/games";
+export const API_GAMES = "https://alert-screeching-headphones.glitch.me/games";
 
 // !=========== NEWS =============
-export const API_NEWS = "http://localhost:8000/news";
+export const API_NEWS = "https://alert-screeching-headphones.glitch.me/news";
 // export const API_NEWS = "http://34.125.130.63/news/";
 
 // !=========== LIKES =============
