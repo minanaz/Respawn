@@ -14,6 +14,7 @@ import apexHomeNews from "./css/images/apexHomeNews.png";
 import respawnHomeNews from "./css/images/respawnHomeNews.png";
 import apexMerchHomeNews from "./css/images/apexMerchHomeNews.jpg";
 import mohHomeNews from "./css/images/mohHomeNews.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const Home = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              mb: "20px"
+              mb: "20px",
             }}
           >
             <Typography
@@ -41,7 +42,9 @@ const Home = () => {
             >
               NEWS
             </Typography>
-            <button className="news-btn">More news</button>
+            <Link to="/news">
+              <button className="news-btn">More news</button>
+            </Link>
           </Box>
           <Box>
             <Grid container spacing={4}>

@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .news-title {
   width: 600px;

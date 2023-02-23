@@ -70,6 +70,7 @@ const AuthContextProvider = ({ children }) => {
   let value = {
     register,
     login,
+    logout,
 
     error,
   };

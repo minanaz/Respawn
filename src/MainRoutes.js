@@ -27,7 +27,6 @@ const MainRoutes = () => {
     { link: "/news/:id", element: <NewsDetailsPage />, id: 8 },
     { link: "/work", element: <WorkPage />, id: 9 },
     { link: "/work/:id", element: <WorkDetailsPage />, id: 10 },
-    { link: "/cart", element: <CartPage />, id: 8 },
     { link: "/edit-news/:id", element: <EditNewsPage />, id: 10 },
     { link: "/edit-work/:id", element: <EditWorkPage />, id: 11 },
     { link: "/favorites", element: <FavoritesPage />, id: 12 },

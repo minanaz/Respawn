@@ -6,12 +6,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination } from "swiper";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { useNews } from "../../contexts/NewsContextProvider";
 
 const News = () => {
-  const { news, getNews, deleteNews, editNews, newsDetails } = useNews();
+  const { news, getNews, user, deleteNews, editNews } = useNews();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getNews();
@@ -72,6 +73,17 @@ const News = () => {
             <h3>{item.title}</h3>
           </Link>
           <p>{item.description}</p>
+          {/* <button>delete</button> */}
+          {user.email === "admin@gmail.com" ? (
+            <div>
+              <button onClick={() => deleteNews(item.id)}>Delete</button>
+              <button onClick={() => navigate(`/edit-news/${item.id}`)}>
+                Edit
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       ))}
     </div>

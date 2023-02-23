@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useState } from "react";
 import { API_NEWS } from "../helpers/consts";
 
 const newsContext = createContext();
@@ -23,6 +23,9 @@ function reducer(state = INIT_STATE, action) {
 
 const NewsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
+  let [user, setUser] = useState("");
+  let [email, setEmail] = useState("");
 
   async function getNews() {
     try {
@@ -56,7 +59,7 @@ const NewsContextProvider = ({ children }) => {
       // };
 
       //   const res = await axios.post(API_NEWS, obj, config);
-      const res = await axios.post(API_NEWS, obj);  
+      const res = await axios.post(API_NEWS, obj);
       console.log(res.data);
     } catch (error) {
       console.log(error);
@@ -74,7 +77,6 @@ const NewsContextProvider = ({ children }) => {
       // };
 
       //   const res = await axios.post(`${API_NEWS}${id}`, config);
-
       const res = await axios.delete(`${API_NEWS}/${id}/`);
       getNews();
     } catch (error) {
@@ -126,6 +128,9 @@ const NewsContextProvider = ({ children }) => {
   }
 
   let value = {
+    user,
+    email,
+
     news: state.news,
     newsDetails: state.newsDetails,
 
