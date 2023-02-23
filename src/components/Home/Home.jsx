@@ -1,9 +1,9 @@
 import { Box, Container } from "@mui/system";
-import React from "react";
+import React, { useEffect } from "react";
 import respTeamHome from "./css/images/respawn.jfif";
 import homePage from "./css/homePage.css";
-import { Grid, Typography } from "@mui/material";
-import { useNavigate } from "react-router";
+import { Button, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router"; 
 
 import apexImg from "./css/images/apexHome.jpg";
 import starWarsImg from "./css/images/starWarsHome.jpg";
@@ -14,12 +14,58 @@ import apexHomeNews from "./css/images/apexHomeNews.png";
 import respawnHomeNews from "./css/images/respawnHomeNews.png";
 import apexMerchHomeNews from "./css/images/apexMerchHomeNews.jpg";
 import mohHomeNews from "./css/images/mohHomeNews.jpg";
+import { useNews } from "../../contexts/NewsContextProvider";
+import { useAuth } from "../../contexts/AuthContextProvider";
+import eaResp from "./css/images/EA-Respawn.png"
 
+import "../News/newsStyle/news.css";
+import { Link } from "react-router-dom";
 const Home = () => {
+  const { news, getNews, deleteNews, editNews, newsDetails, pages } = useNews();
+  const { user } = useAuth();
+
+  useEffect(() => {
+    getNews();
+  }, []);
+  let newss = [];
+
+  newss.push(news[0]);
+  newss.push(news[1]);
+  // useEffect(() => {
+  // }, [news]);
   const navigate = useNavigate();
 
   return (
     <div className="home-page">
+      <Box
+        sx={{
+          backgroundImage: `url(${eaResp})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          webkitBackgroundSize: "cover",
+          mozBackgroundSize: "cover",
+          oBackgroundSize: "cover",
+          backgroundSize: "cover",
+          backgroundColor: "balck",
+          height: "500px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            backgroundColor: "rgba(0,0,0,0.2)",
+          }}
+        ></Box></Box>
       <Box sx={{ background: "#e7e6e3", padding: "50px 0" }}>
         <Container>
           <Box
@@ -45,8 +91,46 @@ const Home = () => {
               More news
             </button>
           </Box>
-          <Box>
-            <Grid container spacing={4}>
+          </Container>
+          <div className="news-page">
+      <div className="container">
+        
+
+        {newss?.map((item) => (
+          <div className="news-title">
+            <img src={item?.image} alt="news" />
+            <p className="news-time">{item?.date}</p>
+            <h5>NEWS</h5>
+            <Link to={`/news/${item?.id}`}>
+              <h3>{item?.title}</h3>
+            </Link>
+            <p>{item?.description}</p>
+            {user === "admin@gmail.com" ? (
+              <div>
+                <Button
+                  sx={{ ml: "8%", mr: "2%" }}
+                  variant="contained"
+                  color="error"
+                  onClick={() => deleteNews(item?.id)}
+                >
+                  Delete
+                </Button>
+                <Button
+                  variant="outlined"
+                  color="error"
+                  onClick={() => navigate(`/edit-news/${item?.id}`)}
+                >
+                  Edit
+                </Button>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+            {/* <Grid container spacing={4}>
               <Grid
                 item
                 md={6}
@@ -111,9 +195,9 @@ const Home = () => {
                   </Typography>
                 </Box>
               </Grid>
-            </Grid>
-          </Box>
-        </Container>
+            </Grid> */}
+     
+        
       </Box>
       <Box sx={{ background: "#1f1f1f", padding: "50px 0" }}>
         <Container>
