@@ -43,7 +43,7 @@ const Work = () => {
 
   const { getVacancies, vacancies, teams, getGroups, getTeams, groups } =
     useWorkContext();
-  
+
   const [apexTeam, setApexTeam] = useState(0);
   const [starWars, setStarWars] = useState(0);
   const [swFps, setSwFps] = useState(0);
@@ -57,8 +57,7 @@ const Work = () => {
   const [filtTeams, setFiltTeams] = useState("");
   const [page, setPage] = useState(1);
   const count = Math.ceil(vacancies.length / 5);
-  
-  
+
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -73,7 +72,7 @@ const Work = () => {
   useEffect(() => {
     getVacancies();
   }, [searchParams]);
-  
+
   useEffect(() => {
     getVacancies();
     getTeams();
@@ -95,6 +94,8 @@ const Work = () => {
     const end = begin + 5;
     return vacancies.slice(begin, end);
   }
+
+  
 
   const apexTeamInfo = [
     {
@@ -428,7 +429,7 @@ const Work = () => {
             >
               WORK WITH US
             </Typography>
-            <Typography>Open Position: 1</Typography>
+            <Typography>Open Position: 10</Typography>
 
             <Box
               className="work-filtres"
@@ -479,9 +480,7 @@ const Work = () => {
                       label="Groups"
                       onChange={(e) => setFiltGroups(e.target.value)}
                     >
-                      <MenuItem value="all">
-                        ALL
-                      </MenuItem>
+                      <MenuItem value="all">ALL</MenuItem>
                       {groups.map((item) => (
                         <MenuItem value={item.id}>{item.title}</MenuItem>
                       ))}
@@ -512,7 +511,7 @@ const Work = () => {
                     </Select>
                   </FormControl>
                 </Grid>
-                
+
                 {/* <Grid item xs={12} sm={4}>
                   <FormControl
                     color="error"
@@ -544,9 +543,21 @@ const Work = () => {
 
             {/* =========================================================================== */}
 
-            {(filtGroups != "all" && filtGroups != "" || filtTeams != "all" && filtTeams != "")
+            {(filtGroups != "all" && filtGroups != "") ||
+            (filtTeams != "all" && filtTeams != "")
               ? currentData().map((item, index) => {
-                 if ((item.groupId == filtGroups && item.teamId == filtTeams && (filtGroups != "all" && filtTeams != "all")) || (item.groupId == filtGroups && (filtGroups != "all" && filtTeams == "all")) || (item.teamId == filtTeams && (filtGroups == "all" && filtTeams != "all")))
+                  if (
+                    (item.groupId == filtGroups &&
+                      item.teamId == filtTeams &&
+                      filtGroups != "all" &&
+                      filtTeams != "all") ||
+                    (item.groupId == filtGroups &&
+                      filtGroups != "all" &&
+                      (filtTeams == "all" || filtTeams == "")) ||
+                    (item.teamId == filtTeams &&
+                      (filtGroups == "all" || filtGroups == "") &&
+                      filtTeams != "all")
+                  )
                     return (
                       <Box sx={{ display: "flex" }}>
                         <IconButton
@@ -611,7 +622,7 @@ const Work = () => {
                                 textAlign: "start",
                               }}
                             >
-                              {groups[item.groupId-1]?.title}
+                              {groups[item.groupId - 1]?.title}
                             </Typography>
                             <Typography
                               sx={{
@@ -626,7 +637,7 @@ const Work = () => {
                                 textAlign: "start",
                               }}
                             >
-                              {teams[item.teamId-1]?.title}
+                              {teams[item.teamId - 1]?.title}
                             </Typography>
                             <Typography
                               sx={{
@@ -702,7 +713,7 @@ const Work = () => {
                             textAlign: "start",
                           }}
                         >
-                          {groups[item.groupId-1]?.title}
+                          {groups[item.groupId - 1]?.title}
                         </Typography>
                         <Typography
                           sx={{
@@ -714,7 +725,7 @@ const Work = () => {
                             textAlign: "start",
                           }}
                         >
-                          {teams[item.teamId-1]?.title}
+                          {teams[item.teamId - 1]?.title}
                         </Typography>
                         <Typography
                           sx={{
