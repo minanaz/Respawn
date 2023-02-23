@@ -14,6 +14,7 @@ import apexHomeNews from "./css/images/apexHomeNews.png";
 import respawnHomeNews from "./css/images/respawnHomeNews.png";
 import apexMerchHomeNews from "./css/images/apexMerchHomeNews.jpg";
 import mohHomeNews from "./css/images/mohHomeNews.jpg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
