@@ -16,7 +16,7 @@ const Navbar = () => {
     { name: "CAREERS", link: "/work", id: 3 },
     { name: "NEWS", link: "/news", id: 4 },
     { name: "GAMES", link: "/games", id: 5 },
-    { name: "FAVORITES", link: "/favorites", id: 5 },
+    { name: "SAVED", link: "/favorites", id: 5 },
   ];
   const [menuActive, setMenuActive] = useState(false);
   const items = [
@@ -25,7 +25,7 @@ const Navbar = () => {
     { value: "CAREERS", href: "/work" },
     { value: "NEWS", href: "/news" },
     { value: "GAMES", href: "/games" },
-    { value: "FAVORITES", href: "/favorites" },
+    { value: "SAVED", href: "/favorites" },
   ];
   return (
     <div className="navbar">
@@ -68,21 +68,7 @@ const Navbar = () => {
         <input className="search-inp" type="text" placeholder="search..." />
         <img src="https://ru.reactjs.org/search.svg" alt="" />
       </div> */}
-      {/* 
-      <div className="navbar-login">
-        {/* {user.email ? (
-          <button className="login__btn">
-            <span onClick={handleLogOut}>Log Out</span>
-          </button>
-        ) : (
-          <button className="login__btn">
-            <Link to="/login">
-              {" "}
-              <span style={{ color: "white" }}>Sign In</span>
-            </Link>
-          </button>
-        )} */}
-      {/* </div> */}
+
       <Burger
         active={menuActive}
         setActive={setMenuActive}

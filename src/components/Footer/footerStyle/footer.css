@@ -40,3 +40,12 @@
   display: flex;
   align-items: center;
 }
+
+.icons {
+  font-size: 22px;
+  color: #807f7f !important;
+}
+.icons:hover {
+  color: #bbbaba !important;
+  transition: 0.2s;
+}

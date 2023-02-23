@@ -58,7 +58,7 @@ const NewsContextProvider = ({ children }) => {
       //   },
       // };
 
-      //   const res = await axios.post(API_NEWS, obj, config);
+      // const res = await axios.post(API_NEWS, obj, config);
       const res = await axios.post(API_NEWS, obj);
       console.log(res.data);
     } catch (error) {
@@ -106,7 +106,7 @@ const NewsContextProvider = ({ children }) => {
     }
   }
 
-  async function editNewsDetails(id, updatedNews) {
+  async function editNews(id, updatedNews) {
     try {
       // const token = JSON.parse(localStorage.getItem("token"));
       // const Authorization = `Bearer ${token.access}`;
@@ -138,7 +138,7 @@ const NewsContextProvider = ({ children }) => {
     getNewsDetails,
     addNews,
     deleteNews,
-    editNewsDetails,
+    editNews,
   };
   return <newsContext.Provider value={value}>{children}</newsContext.Provider>;
 };

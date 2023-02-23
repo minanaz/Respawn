@@ -38,11 +38,11 @@ const AuthRegister = () => {
 
   const handleSubmit = () => {
     if (
-      // !name.trim() ||
-      // !surname.trim() ||
-      // !country.trim() ||
-      // !number.trim() ||
-      // !username.trim() ||
+      !name.trim() ||
+      !surname.trim() ||
+      !country.trim() ||
+      !number.trim() ||
+      !username.trim() ||
       !email.trim() ||
       !password.trim() ||
       !confirmPassword.trim()
@@ -60,9 +60,6 @@ const AuthRegister = () => {
     formData.append("password", password);
     formData.append("password_confirm", confirmPassword);
     console.log(formData);
-    console.log(email);
-    console.log(password);
-    console.log(confirmPassword);
     register(formData);
   };
 

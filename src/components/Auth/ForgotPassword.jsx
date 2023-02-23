@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { styled } from "@mui/material/styles";
 import { useAuth } from "../../contexts/AuthContextProvider";
@@ -26,24 +26,24 @@ const CssTextField = styled(TextField)({
 });
 
 const AuthLogin = () => {
-  const { login } = useAuth();
+  const { forgotPassword } = useAuth();
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
-    if (!email.trim() || !password.trim()) {
+    if (!email.trim()) {
       alert("Fill in the fields");
       return;
     }
 
     let formData = new FormData();
     formData.append("email", email);
-    formData.append("password", password);
-    login(formData, email);
+    forgotPassword(formData);
+    alert("We sent you the code. Please check your mailbox!");
+    navigate("/forgotpasswordcomplete");
   };
 
-  const navigate = useNavigate();
   return (
     <div className="authPage">
       <Container
@@ -82,18 +82,8 @@ const AuthLogin = () => {
             // maxHeight: "31.021558158122353rem",
           }}
         >
-          <h5 className="auth-title">Sign In</h5>
-          {/* <Box
-            component="form"
-            noValidate
-            sx={{
-              mt: 1,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          > */}
+          <h5 className="auth-title">Forgot password? Enter your email</h5>
+
           <div className="login-wrapper">
             <CssTextField
               className="form-animate"
@@ -101,15 +91,15 @@ const AuthLogin = () => {
               size="small"
               required
               fullWidth
-              id="email"
+              id="username"
               label="email"
-              name="email"
+              name="username"
               // helperText={emailError}
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-              autoComplete="email"
+              autoComplete="username"
               autoFocus
               disableUnderline={true}
               sx={{
@@ -117,36 +107,13 @@ const AuthLogin = () => {
                 fontFamily: "'FF Mark W05', sans-serif",
               }}
             />
-            <CssTextField
-              className="form-animate"
-              margin="normal"
-              size="small"
-              required
-              fullWidth
-              name="password"
-              label="password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              // helperText={passwordError}
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              sx={{
-                // border: "2px solid rgba(126,126,126,0.1)",
-                borderRadius: " 4px",
-                fontFamily: "'FF Mark W05', sans-serif",
-                textAlign: "center",
-              }}
-            />
           </div>
-          <div className="auth-social">
+          {/* <div className="auth-social">
             <button id="auth-facebook"></button>
             <button id="auth-google"></button>
             <button id="auth-apple"></button>
             <button id="auth-xbox"></button>
-          </div>
+          </div> */}
 
           <FormControlLabel
             sx={{
@@ -178,21 +145,6 @@ const AuthLogin = () => {
               alignItems: "center",
             }}
           >
-            <Grid item xs sx={{ width: "50%" }}>
-              <Link
-                to="/forgotpassword"
-                variant="body2"
-                sx={{
-                  textDecoration: " none",
-                  cursor: "pointer",
-                  color: "#666",
-                  fontSize: "0.1rem",
-                  fontFamily: "'FF Mark W05', sans-serif",
-                }}
-              >
-                can't sign in?
-              </Link>
-            </Grid>
             <Grid item sx={{ width: "50%" }}>
               <Link
                 href="#"

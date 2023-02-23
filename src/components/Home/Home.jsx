@@ -42,9 +42,15 @@ const Home = () => {
             >
               NEWS
             </Typography>
+<<<<<<< HEAD
             <Link to="/news">
               <button className="news-btn">More news</button>
             </Link>
+=======
+            <button className="news-btn" onClick={() => navigate("/news")}>
+              More news
+            </button>
+>>>>>>> 56c682ec7a0d9eb5ee21b00f65a26f9786cd63d2
           </Box>
           <Box>
             <Grid container spacing={4}>

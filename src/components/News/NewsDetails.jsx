@@ -10,7 +10,6 @@ const NewsDetails = () => {
   useEffect(() => {
     getNewsDetails(params.id);
   }, []);
-
   return (
     <div>
       <div className="news">
